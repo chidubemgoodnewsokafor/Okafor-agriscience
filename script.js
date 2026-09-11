@@ -1,36 +1,181 @@
-// Okafor Agriscience website
+// =========================================================
+// OKAFOR AGRISCIENCE
+// Website JavaScript
+// =========================================================
 
-// Mobile menu
+
+// =========================================================
+// MOBILE MENU
+// =========================================================
+
 const menuButton = document.querySelector(".menu-button");
-const navigation = document.querySelector(".navigation");
+const nav = document.querySelector(".nav");
 
-if (menuButton && navigation) {
-  menuButton.addEventListener("click", () => {
-    navigation.classList.toggle("open");
-  });
+if (menuButton && nav) {
+
+    menuButton.addEventListener("click", () => {
+        nav.classList.toggle("open");
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("open");
+        });
+    });
 }
 
-// Close mobile menu when a link is clicked
-document.querySelectorAll(".navigation a").forEach((link) => {
-  link.addEventListener("click", () => {
-    if (navigation) {
-      navigation.classList.remove("open");
+
+// =========================================================
+// HERO CAROUSEL
+// =========================================================
+
+const slides = document.querySelectorAll(".hero-slide");
+const indicators = document.querySelectorAll(".indicator");
+
+const previousButton =
+    document.querySelector(".carousel-prev");
+
+const nextButton =
+    document.querySelector(".carousel-next");
+
+let currentSlide = 0;
+let autoPlay;
+
+
+// Show a particular slide
+function showSlide(index) {
+
+    if (!slides.length) return;
+
+    if (index >= slides.length) {
+        index = 0;
     }
-  });
+
+    if (index < 0) {
+        index = slides.length - 1;
+    }
+
+    currentSlide = index;
+
+
+    // Remove active state
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    indicators.forEach(indicator => {
+        indicator.classList.remove("active");
+    });
+
+
+    // Add active state
+    slides[currentSlide].classList.add("active");
+
+    if (indicators[currentSlide]) {
+        indicators[currentSlide].classList.add("active");
+    }
+}
+
+
+// Next slide
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+
+// Previous slide
+function previousSlide() {
+    showSlide(currentSlide - 1);
+}
+
+
+// =========================================================
+// CAROUSEL BUTTONS
+// =========================================================
+
+if (nextButton) {
+    nextButton.addEventListener("click", () => {
+
+        nextSlide();
+        restartAutoPlay();
+
+    });
+}
+
+
+if (previousButton) {
+    previousButton.addEventListener("click", () => {
+
+        previousSlide();
+        restartAutoPlay();
+
+    });
+}
+
+
+// =========================================================
+// CAROUSEL INDICATORS
+// =========================================================
+
+indicators.forEach((indicator, index) => {
+
+    indicator.addEventListener("click", () => {
+
+        showSlide(index);
+        restartAutoPlay();
+
+    });
+
 });
 
-// Simple reveal animation
-const revealElements = document.querySelectorAll(".reveal");
 
-const revealOnScroll = () => {
-  revealElements.forEach((element) => {
-    const position = element.getBoundingClientRect().top;
+// =========================================================
+// AUTOMATIC SLIDESHOW
+// =========================================================
 
-    if (position < window.innerHeight - 80) {
-      element.classList.add("visible");
-    }
-  });
-};
+function startAutoPlay() {
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+    autoPlay = setInterval(() => {
+        nextSlide();
+    }, 5000);
+
+}
+
+
+function restartAutoPlay() {
+
+    clearInterval(autoPlay);
+
+    startAutoPlay();
+
+}
+
+
+// Start carousel
+if (slides.length) {
+
+    showSlide(0);
+
+    startAutoPlay();
+
+}
+
+
+// =========================================================
+// PAUSE CAROUSEL WHEN MOUSE IS OVER IT
+// =========================================================
+
+const heroCarousel =
+    document.querySelector(".hero-carousel");
+
+if (heroCarousel) {
+
+    heroCarousel.addEventListener("mouseenter", () => {
+        clearInterval(autoPlay);
+    });
+
+    heroCarousel.addEventListener("mouseleave", () => {
+        startAutoPlay();
+    });
+
+}
