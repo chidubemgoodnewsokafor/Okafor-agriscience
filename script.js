@@ -264,34 +264,52 @@ if (counters.length) {
 
 const counters = document.querySelectorAll(".counter");
 
-function startCounters() {
+function animateCounter(counter) {
 
-    counters.forEach(counter => {
+    const target = Number(counter.dataset.target);
+    const duration = 1800;
+    const startTime = performance.now();
 
-        const target = Number(counter.dataset.target);
+    function updateCounter(currentTime) {
 
-        let current = 0;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
 
-        const step = Math.max(1, Math.ceil(target / 80));
+        // Smooth easing
+        const easedProgress =
+            1 - Math.pow(1 - progress, 3);
 
-        function count() {
+        const currentValue =
+            Math.floor(easedProgress * target);
 
-            current += step;
+        counter.textContent =
+            currentValue.toLocaleString();
 
-            if (current >= target) {
-                counter.textContent = target.toLocaleString();
-                return;
-            }
+        if (progress < 1) {
 
-            counter.textContent = current.toLocaleString();
+            requestAnimationFrame(updateCounter);
 
-            requestAnimationFrame(count);
+        } else {
+
+            counter.textContent =
+                target.toLocaleString();
+
         }
+    }
 
-        count();
-    });
+    // Always begin from zero
+    counter.textContent = "0";
+
+    requestAnimationFrame(updateCounter);
 }
 
+
+// Start every counter when the page loads
+
 if (counters.length) {
-    startCounters();
-                    }
+
+    counters.forEach(counter => {
+        animateCounter(counter);
+    });
+
+    }
