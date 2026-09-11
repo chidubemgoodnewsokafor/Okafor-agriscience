@@ -177,7 +177,7 @@ if (impactSection && counters.length) {
 
         },
         {
-            threshold: 0.35
+            threshold: 0.85
         }
     );
 
