@@ -1,1425 +1,181 @@
-/* =========================================================
-   OKAFOR AGRISCIENCE
-   Main Website Styles
-========================================================= */
+// =========================================================
+// OKAFOR AGRISCIENCE
+// Website JavaScript
+// =========================================================
 
-:root {
-    --yellow: #FFE500;
-    --teal: #01998E;
-    --dark-teal: #074540;
-    --red: #99010C;
-    --dark-red: #360005;
 
-    --white: #ffffff;
-    --off-white: #f7f8f6;
-    --light-grey: #eef1ef;
-    --text: #243331;
-    --muted: #687572;
+// =========================================================
+// MOBILE MENU
+// =========================================================
 
-    --container: 1180px;
-    --radius: 18px;
-    --shadow: 0 18px 50px rgba(7, 69, 64, 0.10);
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background: var(--white);
-    color: var(--text);
-    line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font: inherit;
-}
-
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-.container {
-    width: min(
-        calc(100% - 40px),
-        var(--container)
-    );
-
-    margin: 0 auto;
-}
-
-.section {
-    padding: 110px 0;
-}
-
-.section-heading {
-    max-width: 700px;
-    margin-bottom: 55px;
-}
-
-.section-heading h2 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    line-height: 1.08;
-    color: var(--dark-teal);
-    margin: 10px 0 20px;
-}
-
-.section-heading p:last-child {
-    color: var(--muted);
-    max-width: 650px;
-}
-
-.eyebrow {
-    color: var(--yellow);
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-}
-
-.eyebrow.dark {
-    color: var(--teal);
-}
-
-h1,
-h2,
-h3,
-h4 {
-    font-weight: 750;
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 52px;
-    padding: 0 25px;
-
-    border-radius: 5px;
-
-    font-size: 0.9rem;
-    font-weight: 700;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
-}
-
-.button:hover {
-    transform: translateY(-3px);
-}
-
-.button-primary {
-    background: var(--yellow);
-    color: var(--dark-teal);
-}
-
-.button-primary:hover {
-    background: var(--white);
-}
-
-.button-outline {
-    color: var(--white);
-    border: 1px solid rgba(255,255,255,0.65);
-    background: rgba(255,255,255,0.04);
-}
-
-.button-outline:hover {
-    background: var(--white);
-    color: var(--dark-teal);
-}
-
-.button-dark {
-    background: var(--dark-teal);
-    color: var(--white);
-}
-
-.button-dark:hover {
-    background: var(--teal);
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    z-index: 1000;
-
-    background: rgba(255,255,255,0.96);
-
-    border-bottom: 1px solid rgba(7,69,64,0.08);
-
-    backdrop-filter: blur(12px);
-}
-
-.nav-container {
-    min-height: 82px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 30px;
-}
-
-.brand-logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.logo-image {
-    width: 62px;
-    height: 62px;
-    object-fit: contain;
-}
-
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.nav a {
-    position: relative;
-
-    font-size: 0.82rem;
-    font-weight: 700;
-
-    color: var(--dark-teal);
-
-    padding: 8px 0;
-}
-
-.nav a::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    width: 0;
-    height: 2px;
-
-    background: var(--teal);
-
-    transition: width 0.25s ease;
-}
-
-.nav a:hover::after {
-    width: 100%;
-}
-
-.menu-button {
-    display: none;
-
-    border: none;
-    background: none;
-
-    font-size: 1.7rem;
-    color: var(--dark-teal);
-
-    cursor: pointer;
-}
-
-
-/* =========================================================
-   HERO CAROUSEL
-========================================================= */
-
-.hero-carousel {
-    position: relative;
-    height: 720px;
-    min-height: 650px;
-
-    overflow: hidden;
-
-    background: var(--dark-teal);
-}
-
-.hero-slides {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.hero-slide {
-    position: absolute;
-    inset: 0;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity 0.9s ease,
-        visibility 0.9s ease;
-}
-
-.hero-slide.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.hero-slide-image {
-    position: absolute;
-    inset: 0;
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    transform: scale(1.03);
-
-    transition:
-        transform 6s ease;
-}
-
-.hero-slide.active .hero-slide-image {
-    transform: scale(1);
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(7,69,64,0.93) 0%,
-            rgba(7,69,64,0.76) 38%,
-            rgba(7,69,64,0.30) 72%,
-            rgba(7,69,64,0.08) 100%
-        );
-}
-
-.hero-content {
-    position: relative;
-    z-index: 5;
-
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding-top: 80px;
-
-    max-width: 1180px;
-}
-
-.hero-content h1 {
-    color: var(--white);
-
-    font-size: clamp(
-        3.2rem,
-        7vw,
-        6.5rem
-    );
-
-    line-height: 0.96;
-
-    letter-spacing: -0.045em;
-
-    max-width: 850px;
-
-    margin: 14px 0 28px;
-}
-
-.hero-text {
-    color: rgba(255,255,255,0.88);
-
-    max-width: 570px;
-
-    font-size: 1.1rem;
-
-    margin-bottom: 34px;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 13px;
-}
-
-.carousel-arrow {
-    position: absolute;
-
-    top: 50%;
-
-    z-index: 10;
-
-    transform: translateY(-50%);
-
-    width: 50px;
-    height: 50px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,255,255,0.45);
-
-    background: rgba(0,0,0,0.15);
-
-    color: var(--white);
-
-    cursor: pointer;
-
-    font-size: 2rem;
-    line-height: 1;
-
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease;
-}
-
-.carousel-arrow:hover {
-    background: var(--teal);
-
-    transform:
-        translateY(-50%)
-        scale(1.05);
-}
-
-.carousel-prev {
-    left: 25px;
-}
-
-.carousel-next {
-    right: 25px;
-}
-
-.hero-indicators {
-    position: absolute;
-
-    z-index: 10;
-
-    left: 50%;
-    bottom: 35px;
-
-    transform: translateX(-50%);
-
-    display: flex;
-    gap: 9px;
-}
-
-.indicator {
-    width: 35px;
-    height: 4px;
-
-    border: none;
-
-    background: rgba(255,255,255,0.4);
-
-    cursor: pointer;
-
-    transition:
-        background 0.25s ease,
-        width 0.25s ease;
-}
-
-.indicator.active {
-    width: 60px;
-    background: var(--yellow);
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.intro {
-    background: var(--white);
-}
-
-.two-column {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
-
-    gap: 80px;
-
-    align-items: center;
-}
-
-.section-image {
-    min-height: 530px;
-
-    border-radius: var(--radius);
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.agriculture-image {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(1,153,142,0.2),
-            rgba(255,229,0,0.1)
-        ),
-        url("images/farmers.jpg")
-        center / cover no-repeat;
-}
-
-.image-label {
-    position: absolute;
-
-    bottom: 25px;
-    left: 25px;
-
-    padding: 10px 15px;
-
-    background: rgba(255,255,255,0.92);
-
-    color: var(--dark-teal);
-
-    font-size: 0.78rem;
-    font-weight: 700;
-
-    border-radius: 4px;
-}
-
-.section-content h2 {
-    font-size: clamp(2rem, 4vw, 3.4rem);
-
-    line-height: 1.08;
-
-    color: var(--dark-teal);
-
-    margin: 12px 0 25px;
-}
-
-.section-content p {
-    color: var(--muted);
-
-    margin-bottom: 18px;
-
-    max-width: 600px;
-}
-
-.text-link {
-    display: inline-block;
-
-    margin-top: 12px;
-
-    color: var(--teal);
-
-    font-weight: 800;
-}
-
-.text-link:hover {
-    color: var(--dark-teal);
-}
-
-
-/* =========================================================
-   SOLUTIONS
-========================================================= */
-
-.solutions {
-    background: var(--off-white);
-}
-
-.solution-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 18px;
-}
-
-.solution-card {
-    position: relative;
-
-    background: var(--white);
-
-    padding: 35px 28px;
-
-    min-height: 330px;
-
-    border: 1px solid rgba(7,69,64,0.08);
-
-    border-radius: var(--radius);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.solution-card::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 5px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--teal),
-            var(--yellow)
-        );
-}
-
-.solution-card:hover {
-    transform: translateY(-8px);
-
-    box-shadow: var(--shadow);
-}
-
-.card-number {
-    color: rgba(7,69,64,0.28);
-
-    font-size: 0.8rem;
-    font-weight: 800;
-}
-
-.card-icon {
-    margin: 28px 0 22px;
-
-    color: var(--teal);
-
-    font-size: 2rem;
-}
-
-.solution-card h3 {
-    color: var(--dark-teal);
-
-    font-size: 1.25rem;
-
-    margin-bottom: 12px;
-}
-
-.solution-card p {
-    color: var(--muted);
-
-    font-size: 0.9rem;
-
-    margin-bottom: 22px;
-}
-
-.solution-card a {
-    color: var(--teal);
-
-    font-weight: 800;
-
-    font-size: 0.85rem;
-}
-
-
-/* =========================================================
-   FARM TECHNOLOGY
-========================================================= */
-
-.technology-section {
-    background: var(--white);
-}
-
-.technology-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 0.9fr)
-        minmax(0, 1.1fr);
-
-    gap: 70px;
-
-    align-items: stretch;
-}
-
-.technology-content h2 {
-    color: var(--dark-teal);
+const menuButton = document.querySelector(".menu-button");
+const nav = document.querySelector(".nav");
 
-    font-size: clamp(2.2rem, 4vw, 4rem);
+if (menuButton && nav) {
 
-    line-height: 1.05;
+    menuButton.addEventListener("click", () => {
+        nav.classList.toggle("open");
+    });
 
-    margin: 12px 0 25px;
+    nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("open");
+        });
+    });
 }
-
-.technology-content > p {
-    color: var(--muted);
-
-    max-width: 600px;
-
-    margin-bottom: 15px;
-}
-
-.technology-list {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 10px;
-
-    margin: 30px 0;
-}
-
-.technology-list span {
-    padding: 11px 13px;
-
-    background: var(--off-white);
-
-    border-left: 3px solid var(--teal);
-
-    color: var(--dark-teal);
-
-    font-size: 0.84rem;
-    font-weight: 700;
-}
-
-.technology-image {
-    min-height: 540px;
-
-    border-radius: var(--radius);
-
-    position: relative;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(7,69,64,0.1),
-            rgba(1,153,142,0.2)
-        ),
-        url("images/farm-automation.jpg")
-        center / cover no-repeat;
-}
-
-.technology-image-label {
-    position: absolute;
-
-    left: 25px;
-    bottom: 25px;
-
-    background: var(--yellow);
-
-    color: var(--dark-teal);
-
-    padding: 15px 20px;
-
-    display: flex;
-    flex-direction: column;
-
-    font-weight: 900;
-}
-
-.technology-image-label small {
-    font-size: 0.65rem;
-
-    letter-spacing: 0.12em;
-}
-
-
-/* =========================================================
-   SCIENCE
-========================================================= */
-
-.science {
-    background: var(--dark-teal);
-
-    color: var(--white);
-}
-
-.science-intro {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 0.7fr);
-
-    gap: 70px;
-
-    align-items: end;
-
-    margin-bottom: 55px;
-}
-
-.science-intro h2 {
-    color: var(--white);
-
-    font-size: clamp(2.2rem, 4vw, 4rem);
-
-    line-height: 1.04;
-
-    margin-top: 12px;
-}
-
-.science-intro > p {
-    color: rgba(255,255,255,0.7);
-}
-
-.science-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 1px;
-
-    background: rgba(255,255,255,0.16);
-}
-
-.science-card {
-    background: var(--dark-teal);
-
-    padding: 35px 27px;
-
-    min-height: 300px;
-
-    transition:
-        background 0.3s ease;
-}
-
-.science-card:hover {
-    background: #0b5c55;
-}
-
-.science-card > span {
-    color: var(--yellow);
-
-    font-size: 0.75rem;
-    font-weight: 800;
-}
-
-.science-card h3 {
-    font-size: 1.25rem;
-
-    margin: 45px 0 15px;
-}
-
-.science-card p {
-    color: rgba(255,255,255,0.65);
-
-    font-size: 0.88rem;
-
-    margin-bottom: 20px;
-}
-
-.science-card a {
-    color: var(--yellow);
-
-    font-size: 0.84rem;
-
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   BRANDS
-========================================================= */
-
-.brands {
-    background: var(--off-white);
-}
-
-.brand-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.brand-card {
-    background: var(--white);
-
-    padding: 40px 30px;
-
-    min-height: 300px;
-
-    border-radius: var(--radius);
-
-    border: 1px solid rgba(7,69,64,0.07);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.brand-card:hover {
-    transform: translateY(-6px);
-
-    box-shadow: var(--shadow);
-}
-
-.brand-logo {
-    min-height: 80px;
-
-    display: flex;
-
-    align-items: center;
-
-    font-size: 2rem;
-
-    font-weight: 900;
-
-    margin-bottom: 25px;
-}
-
-.idegro {
-    color: var(--teal);
-}
-
-.rainso {
-    color: var(--dark-teal);
-}
-
-.azbred {
-    color: var(--red);
-}
-
-.brand-card h3 {
-    color: var(--dark-teal);
-
-    margin-bottom: 5px;
-}
-
-.brand-card p {
-    color: var(--muted);
-
-    margin-bottom: 20px;
-}
-
-.brand-card a {
-    color: var(--teal);
-
-    font-size: 0.85rem;
-
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   FARMERS BANNER
-========================================================= */
-
-.farmer-banner {
-    position: relative;
-
-    padding: 115px 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(7,69,64,0.96),
-            rgba(7,69,64,0.72)
-        ),
-        url("images/farmers.jpg")
-        center / cover no-repeat;
-}
-
-.farmer-content {
-    max-width: 800px;
-
-    text-align: center;
-}
-
-.farmer-content h2 {
-    color: var(--white);
-
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-
-    line-height: 1;
-
-    margin: 12px 0 20px;
-}
-
-.farmer-content > p:not(.eyebrow) {
-    color: rgba(255,255,255,0.78);
-
-    max-width: 600px;
-
-    margin: 0 auto 30px;
-}
-
-
-/* =========================================================
-   WHERE TO BUY
-========================================================= */
-
-.where-to-buy {
-    background: var(--white);
-}
-
-.retailer-box {
-    min-height: 400px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 50px;
-
-    border-radius: var(--radius);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,229,0,0.2),
-            rgba(1,153,142,0.15)
-        );
-}
-
-.retailer-icon {
-    display: block;
-
-    color: var(--teal);
-
-    font-size: 3rem;
-
-    margin-bottom: 15px;
-}
-
-.retailer-box h3 {
-    color: var(--dark-teal);
-
-    font-size: 1.6rem;
-
-    margin-bottom: 10px;
-}
-
-.retailer-box p {
-    color: var(--muted);
-}
-
-
-/* =========================================================
-   INSIGHTS
-========================================================= */
-
-.insights {
-    background: var(--off-white);
-}
-
-.insight-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.insight-card {
-    background: var(--white);
-
-    border-radius: var(--radius);
-
-    overflow: hidden;
-
-    border: 1px solid rgba(7,69,64,0.07);
-}
-
-.insight-image {
-    height: 220px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--dark-teal),
-            var(--teal)
-        );
-}
-
-.insight-content {
-    padding: 28px;
-}
-
-.insight-content > span {
-    color: var(--teal);
-
-    font-size: 0.72rem;
-
-    font-weight: 800;
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.08em;
-}
-
-.insight-content h3 {
-    color: var(--dark-teal);
-
-    font-size: 1.2rem;
-
-    line-height: 1.25;
-
-    margin: 12px 0 20px;
-}
-
-.insight-content a {
-    color: var(--teal);
-
-    font-size: 0.85rem;
-
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact {
-    background: var(--yellow);
-}
-
-.contact-box {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 40px;
-}
-
-.contact-box h2 {
-    color: var(--dark-teal);
-
-    font-size: clamp(2.2rem, 4vw, 4rem);
-
-    line-height: 1;
-
-    margin: 12px 0 15px;
-}
-
-.contact-box p:last-child {
-    color: rgba(7,69,64,0.75);
-
-    max-width: 650px;
-}
-
-.contact-box .button-primary {
-    background: var(--dark-teal);
-    color: var(--white);
-
-    flex-shrink: 0;
-}
-
-.contact-box .button-primary:hover {
-    background: var(--teal);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-    background: var(--dark-red);
-
-    color: var(--white);
-
-    padding-top: 75px;
-}
-
-.footer-grid {
-    display: grid;
-
-    grid-template-columns:
-        2fr 1fr 1fr 1fr;
-
-    gap: 50px;
-
-    padding-bottom: 60px;
-}
-
-.footer-brand {
-    max-width: 350px;
-}
-
-.footer-logo-image {
-    width: 75px;
-    height: 75px;
-
-    object-fit: contain;
-
-    margin-bottom: 18px;
-
-    filter:
-        grayscale(1)
-        brightness(0)
-        invert(1);
-}
-
-.footer-motto {
-    color: var(--yellow);
-
-    font-weight: 800;
-
-    margin-bottom: 12px;
-}
-
-.footer-company {
-    color: rgba(255,255,255,0.62);
-
-    font-size: 0.85rem;
-}
-
-.footer h4 {
-    color: var(--white);
-
-    margin-bottom: 18px;
-}
-
-.footer-grid > div:not(.footer-brand) a {
-    display: block;
-
-    color: rgba(255,255,255,0.62);
-
-    font-size: 0.84rem;
-
-    margin-bottom: 11px;
-
-    transition:
-        color 0.2s ease;
-}
-
-.footer-grid > div:not(.footer-brand) a:hover {
-    color: var(--yellow);
-}
-
-.footer-bottom {
-    min-height: 75px;
-
-    border-top: 1px solid rgba(255,255,255,0.12);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    color: rgba(255,255,255,0.45);
-
-    font-size: 0.75rem;
-}
-
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
-@media (max-width: 1000px) {
+// =========================================================
+// HERO CAROUSEL
+// =========================================================
 
-    .nav {
-        position: absolute;
+const slides = document.querySelectorAll(".hero-slide");
+const indicators = document.querySelectorAll(".indicator");
 
-        top: 82px;
-        left: 0;
-        right: 0;
+const previousButton =
+    document.querySelector(".carousel-prev");
 
-        background: var(--white);
+const nextButton =
+    document.querySelector(".carousel-next");
 
-        padding: 20px;
+let currentSlide = 0;
+let autoPlay;
 
-        display: none;
 
-        flex-direction: column;
+// Show a particular slide
+function showSlide(index) {
 
-        align-items: flex-start;
+    if (!slides.length) return;
 
-        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    if (index >= slides.length) {
+        index = 0;
     }
 
-    .nav.open {
-        display: flex;
+    if (index < 0) {
+        index = slides.length - 1;
     }
 
-    .menu-button {
-        display: block;
-    }
+    currentSlide = index;
 
-    .solution-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
 
-    .science-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+    // Remove active state
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
 
-    .technology-layout {
-        grid-template-columns: 1fr;
-    }
+    indicators.forEach(indicator => {
+        indicator.classList.remove("active");
+    });
 
-    .footer-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+
+    // Add active state
+    slides[currentSlide].classList.add("active");
+
+    if (indicators[currentSlide]) {
+        indicators[currentSlide].classList.add("active");
     }
+}
+
+
+// Next slide
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+
+// Previous slide
+function previousSlide() {
+    showSlide(currentSlide - 1);
+}
+
+
+// =========================================================
+// CAROUSEL BUTTONS
+// =========================================================
+
+if (nextButton) {
+    nextButton.addEventListener("click", () => {
+
+        nextSlide();
+        restartAutoPlay();
+
+    });
+}
+
+
+if (previousButton) {
+    previousButton.addEventListener("click", () => {
+
+        previousSlide();
+        restartAutoPlay();
+
+    });
+}
+
+
+// =========================================================
+// CAROUSEL INDICATORS
+// =========================================================
+
+indicators.forEach((indicator, index) => {
+
+    indicator.addEventListener("click", () => {
+
+        showSlide(index);
+        restartAutoPlay();
+
+    });
+
+});
+
+
+// =========================================================
+// AUTOMATIC SLIDESHOW
+// =========================================================
+
+function startAutoPlay() {
+
+    autoPlay = setInterval(() => {
+        nextSlide();
+    }, 5000);
 
 }
 
 
-@media (max-width: 700px) {
+function restartAutoPlay() {
 
-    .container {
-        width: min(
-            calc(100% - 30px),
-            var(--container)
-        );
-    }
+    clearInterval(autoPlay);
 
-    .section {
-        padding: 75px 0;
-    }
-
-    .hero-carousel {
-        height: 680px;
-        min-height: 620px;
-    }
-
-    .hero-content {
-        padding-top: 75px;
-    }
-
-    .hero-content h1 {
-        font-size: 3.3rem;
-    }
-
-    .hero-text {
-        font-size: 0.98rem;
-    }
-
-    .carousel-arrow {
-        display: none;
-    }
-
-    .two-column {
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-    }
-
-    .section-image {
-        min-height: 400px;
-    }
-
-    .solution-grid,
-    .science-grid,
-    .brand-grid,
-    .insight-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .science-intro {
-        grid-template-columns: 1fr;
-
-        gap: 25px;
-    }
-
-    .technology-list {
-        grid-template-columns: 1fr;
-    }
-
-    .technology-image {
-        min-height: 400px;
-    }
-
-    .contact-box {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-
-        gap: 35px 20px;
-    }
-
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        justify-content: center;
-
-        padding: 20px 0;
-    }
+    startAutoPlay();
 
 }
 
 
-@media (max-width: 450px) {
+// Start carousel
+if (slides.length) {
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
+    showSlide(0);
 
-    .footer-brand {
-        grid-column: auto;
-    }
+    startAutoPlay();
 
-    .hero-buttons {
-        flex-direction: column;
+}
 
-        align-items: stretch;
-    }
 
-    .button {
-        width: 100%;
-    }
+// =========================================================
+// PAUSE CAROUSEL WHEN MOUSE IS OVER IT
+// =========================================================
+
+const heroCarousel =
+    document.querySelector(".hero-carousel");
+
+if (heroCarousel) {
+
+    heroCarousel.addEventListener("mouseenter", () => {
+        clearInterval(autoPlay);
+    });
+
+    heroCarousel.addEventListener("mouseleave", () => {
+        startAutoPlay();
+    });
 
 }
