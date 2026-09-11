@@ -179,3 +179,82 @@ if (heroCarousel) {
     });
 
 }
+// =========================================================
+// IMPACT COUNTERS
+// =========================================================
+
+const counters = document.querySelectorAll(".counter");
+
+const startCounters = () => {
+
+    counters.forEach(counter => {
+
+        const target = Number(counter.dataset.target);
+
+        let current = 0;
+
+        const increment = Math.max(
+            1,
+            Math.ceil(target / 80)
+        );
+
+        const updateCounter = () => {
+
+            current += increment;
+
+            if (current >= target) {
+                counter.textContent =
+                    target.toLocaleString();
+
+                return;
+            }
+
+            counter.textContent =
+                current.toLocaleString();
+
+            requestAnimationFrame(updateCounter);
+        };
+
+        updateCounter();
+
+    });
+
+};
+
+
+// Start counters when the section becomes visible
+
+if (counters.length) {
+
+    const impactSection =
+        document.querySelector(".impact-section");
+
+    if (impactSection) {
+
+        const observer =
+            new IntersectionObserver(
+                (entries, observer) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            startCounters();
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.3
+                }
+            );
+
+        observer.observe(impactSection);
+
+    }
+
+}
