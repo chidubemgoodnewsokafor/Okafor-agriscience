@@ -210,8 +210,8 @@ h4 {
 }
 
 .logo-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
 }
 
@@ -500,7 +500,7 @@ h4 {
             rgba(1,153,142,0.2),
             rgba(255,229,0,0.1)
         ),
-        url("images/farmers.jpg")
+        url("farmers.jpg")
         center / cover no-repeat;
 }
 
@@ -734,7 +734,7 @@ h4 {
             rgba(7,69,64,0.1),
             rgba(1,153,142,0.2)
         ),
-        url("images/farm-automation.jpg")
+        url("farm-automation.jpg")
         center / cover no-repeat;
 }
 
@@ -958,7 +958,7 @@ h4 {
             rgba(7,69,64,0.96),
             rgba(7,69,64,0.72)
         ),
-        url("images/farmers.jpg")
+        url("farmers.jpg")
         center / cover no-repeat;
 }
 
@@ -1183,8 +1183,8 @@ h4 {
 }
 
 .footer-logo-image {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
 
     object-fit: contain;
 
