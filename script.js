@@ -258,3 +258,40 @@ if (counters.length) {
     }
 
 }
+// =========================================================
+// IMPACT COUNTERS
+// =========================================================
+
+const counters = document.querySelectorAll(".counter");
+
+function startCounters() {
+
+    counters.forEach(counter => {
+
+        const target = Number(counter.dataset.target);
+
+        let current = 0;
+
+        const step = Math.max(1, Math.ceil(target / 80));
+
+        function count() {
+
+            current += step;
+
+            if (current >= target) {
+                counter.textContent = target.toLocaleString();
+                return;
+            }
+
+            counter.textContent = current.toLocaleString();
+
+            requestAnimationFrame(count);
+        }
+
+        count();
+    });
+}
+
+if (counters.length) {
+    startCounters();
+                    }
