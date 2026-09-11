@@ -1434,3 +1434,12 @@ h4 {
     }
 
 }
+/* CENTER FOOTER BOTTOM */
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+}
