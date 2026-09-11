@@ -1,10 +1,4 @@
 // =========================================================
-// OKAFOR AGRISCIENCE
-// Website JavaScript
-// =========================================================
-
-
-// =========================================================
 // MOBILE MENU
 // =========================================================
 
@@ -12,7 +6,6 @@ const menuButton = document.querySelector(".menu-button");
 const nav = document.querySelector(".nav");
 
 if (menuButton && nav) {
-
     menuButton.addEventListener("click", () => {
         nav.classList.toggle("open");
     });
@@ -31,248 +24,117 @@ if (menuButton && nav) {
 
 const slides = document.querySelectorAll(".hero-slide");
 const indicators = document.querySelectorAll(".indicator");
-
-const previousButton =
-    document.querySelector(".carousel-prev");
-
-const nextButton =
-    document.querySelector(".carousel-next");
+const previousButton = document.querySelector(".carousel-prev");
+const nextButton = document.querySelector(".carousel-next");
 
 let currentSlide = 0;
 let autoPlay;
 
 
-// Show a particular slide
 function showSlide(index) {
 
     if (!slides.length) return;
 
     if (index >= slides.length) {
-        index = 0;
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = index;
     }
 
-    if (index < 0) {
-        index = slides.length - 1;
-    }
-
-    currentSlide = index;
-
-
-    // Remove active state
-    slides.forEach(slide => {
-        slide.classList.remove("active");
+    slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === currentSlide);
     });
 
-    indicators.forEach(indicator => {
-        indicator.classList.remove("active");
+    indicators.forEach((indicator, i) => {
+        indicator.classList.toggle("active", i === currentSlide);
     });
-
-
-    // Add active state
-    slides[currentSlide].classList.add("active");
-
-    if (indicators[currentSlide]) {
-        indicators[currentSlide].classList.add("active");
-    }
 }
 
 
-// Next slide
 function nextSlide() {
     showSlide(currentSlide + 1);
 }
 
 
-// Previous slide
 function previousSlide() {
     showSlide(currentSlide - 1);
 }
 
 
-// =========================================================
-// CAROUSEL BUTTONS
-// =========================================================
-
 if (nextButton) {
     nextButton.addEventListener("click", () => {
-
         nextSlide();
         restartAutoPlay();
-
     });
 }
 
 
 if (previousButton) {
     previousButton.addEventListener("click", () => {
-
         previousSlide();
         restartAutoPlay();
-
     });
 }
 
 
-// =========================================================
-// CAROUSEL INDICATORS
-// =========================================================
-
 indicators.forEach((indicator, index) => {
-
     indicator.addEventListener("click", () => {
-
         showSlide(index);
         restartAutoPlay();
-
     });
-
 });
 
 
-// =========================================================
-// AUTOMATIC SLIDESHOW
-// =========================================================
-
 function startAutoPlay() {
+    autoPlay = setInterval(nextSlide, 6000);
+}
 
-    autoPlay = setInterval(() => {
-        nextSlide();
-    }, 5000);
 
+function stopAutoPlay() {
+    clearInterval(autoPlay);
 }
 
 
 function restartAutoPlay() {
-
-    clearInterval(autoPlay);
-
+    stopAutoPlay();
     startAutoPlay();
-
 }
 
 
-// Start carousel
-if (slides.length) {
-
-    showSlide(0);
-
-    startAutoPlay();
-
-}
-
-
-// =========================================================
-// PAUSE CAROUSEL WHEN MOUSE IS OVER IT
-// =========================================================
-
-const heroCarousel =
-    document.querySelector(".hero-carousel");
+const heroCarousel = document.querySelector(".hero-carousel");
 
 if (heroCarousel) {
-
-    heroCarousel.addEventListener("mouseenter", () => {
-        clearInterval(autoPlay);
-    });
-
-    heroCarousel.addEventListener("mouseleave", () => {
-        startAutoPlay();
-    });
-
+    heroCarousel.addEventListener("mouseenter", stopAutoPlay);
+    heroCarousel.addEventListener("mouseleave", startAutoPlay);
 }
+
+
+showSlide(0);
+startAutoPlay();
+
+
 // =========================================================
 // IMPACT COUNTERS
 // =========================================================
 
 const counters = document.querySelectorAll(".counter");
 
-const startCounters = () => {
-
-    counters.forEach(counter => {
-
-        const target = Number(counter.dataset.target);
-
-        let current = 0;
-
-        const increment = Math.max(
-            1,
-            Math.ceil(target / 80)
-        );
-
-        const updateCounter = () => {
-
-            current += increment;
-
-            if (current >= target) {
-                counter.textContent =
-                    target.toLocaleString();
-
-                return;
-            }
-
-            counter.textContent =
-                current.toLocaleString();
-
-            requestAnimationFrame(updateCounter);
-        };
-
-        updateCounter();
-
-    });
-
-};
-
-
-// Start counters when the section becomes visible
-
-if (counters.length) {
-
-    const impactSection =
-        document.querySelector(".impact-section");
-
-    if (impactSection) {
-
-        const observer =
-            new IntersectionObserver(
-                (entries, observer) => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            startCounters();
-
-                            observer.unobserve(entry.target);
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.3
-                }
-            );
-
-        observer.observe(impactSection);
-
-    }
-
-}
-// =========================================================
-// IMPACT COUNTERS
-// =========================================================
-
-const counters = document.querySelectorAll(".counter");
 
 function animateCounter(counter) {
 
     const target = Number(counter.dataset.target);
+
     const duration = 1800;
+
     const startTime = performance.now();
+
 
     function updateCounter(currentTime) {
 
         const elapsed = currentTime - startTime;
+
         const progress = Math.min(elapsed / duration, 1);
 
         // Smooth easing
@@ -285,6 +147,7 @@ function animateCounter(counter) {
         counter.textContent =
             currentValue.toLocaleString();
 
+
         if (progress < 1) {
 
             requestAnimationFrame(updateCounter);
@@ -293,18 +156,16 @@ function animateCounter(counter) {
 
             counter.textContent =
                 target.toLocaleString();
-
         }
     }
 
-    // Always begin from zero
+
+    // Always start from zero
     counter.textContent = "0";
 
     requestAnimationFrame(updateCounter);
 }
 
-
-// Start every counter when the page loads
 
 if (counters.length) {
 
@@ -312,4 +173,4 @@ if (counters.length) {
         animateCounter(counter);
     });
 
-    }
+}
