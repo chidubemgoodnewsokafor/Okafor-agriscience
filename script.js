@@ -116,28 +116,22 @@ startAutoPlay();
 
 
 // =========================================================
-// IMPACT COUNTERS
+// IMPACT COUNTERS — START WHEN VISIBLE
 // =========================================================
 
 const counters = document.querySelectorAll(".counter");
 
-
 function animateCounter(counter) {
 
     const target = Number(counter.dataset.target);
-
     const duration = 1800;
-
     const startTime = performance.now();
-
 
     function updateCounter(currentTime) {
 
         const elapsed = currentTime - startTime;
-
         const progress = Math.min(elapsed / duration, 1);
 
-        // Smooth easing
         const easedProgress =
             1 - Math.pow(1 - progress, 3);
 
@@ -147,30 +141,45 @@ function animateCounter(counter) {
         counter.textContent =
             currentValue.toLocaleString();
 
-
         if (progress < 1) {
-
             requestAnimationFrame(updateCounter);
-
         } else {
-
             counter.textContent =
                 target.toLocaleString();
         }
     }
 
-
-    // Always start from zero
     counter.textContent = "0";
 
     requestAnimationFrame(updateCounter);
 }
 
 
-if (counters.length) {
+const impactSection = document.querySelector(".impact-section");
 
-    counters.forEach(counter => {
-        animateCounter(counter);
-    });
+if (impactSection && counters.length) {
 
-}
+    let countersStarted = false;
+
+    const counterObserver = new IntersectionObserver(
+        (entries) => {
+
+            if (entries[0].isIntersecting && !countersStarted) {
+
+                countersStarted = true;
+
+                counters.forEach(counter => {
+                    animateCounter(counter);
+                });
+
+                counterObserver.unobserve(impactSection);
+            }
+
+        },
+        {
+            threshold: 0.35
+        }
+    );
+
+    counterObserver.observe(impactSection);
+                                    }
