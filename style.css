@@ -210,8 +210,8 @@ h4 {
 }
 
 .logo-image {
-    width: 62px;
-    height: 62px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
 }
 
@@ -1183,8 +1183,8 @@ h4 {
 }
 
 .footer-logo-image {
-    width: 75px;
-    height: 75px;
+    width: 120px;
+    height: 120px;
 
     object-fit: contain;
 
