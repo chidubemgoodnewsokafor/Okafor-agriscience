@@ -1443,3 +1443,83 @@ h4 {
     text-align: center;
     gap: 8px;
 }
+/* =========================================================
+   OUR IMPACT
+========================================================= */
+
+.impact-section {
+    padding: 95px 0;
+    background: var(--off-white);
+}
+
+.impact-heading {
+    max-width: 700px;
+    margin-bottom: 50px;
+}
+
+.impact-heading h2 {
+    color: var(--dark-teal);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    line-height: 1.05;
+    margin: 12px 0 18px;
+}
+
+.impact-heading p:last-child {
+    color: var(--muted);
+    max-width: 600px;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(7, 69, 64, 0.12);
+    border-bottom: 1px solid rgba(7, 69, 64, 0.12);
+}
+
+.impact-card {
+    padding: 38px 25px;
+    text-align: center;
+    border-right: 1px solid rgba(7, 69, 64, 0.12);
+}
+
+.impact-card:last-child {
+    border-right: none;
+}
+
+.impact-number {
+    color: var(--dark-teal);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.impact-number span {
+    color: var(--teal);
+}
+
+.impact-card p {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-card:nth-child(2) {
+        border-right: none;
+    }
+
+    .impact-card:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(7, 69, 64, 0.12);
+    }
+
+}
