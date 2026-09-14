@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Find Your Idegro Representative | Idegro Seeds</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+
+    /* =========================
+       REPRESENTATIVE PAGE
+    ========================= */
+
+    .rep-page {
+      min-height: 100vh;
+      background: #f7f7f7;
+      padding-bottom: 80px;
+    }
+
+
+    /* HERO */
+
+    .rep-hero {
+      background: #074540;
+      color: white;
+      padding: 90px 20px 80px;
+      text-align: center;
+    }
+
+    .rep-hero .label {
+      color: #FFE500;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .rep-hero h1 {
+      font-size: 44px;
+      margin: 0 auto 18px;
+      max-width: 750px;
+    }
+
+    .rep-hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+
+    /* FINDER */
+
+    .rep-finder {
+      max-width: 700px;
+      margin: -35px auto 0;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .finder-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+      text-align: center;
+    }
+
+    .finder-card h2 {
+      color: #074540;
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    .finder-card p {
+      color: #555;
+      line-height: 1.7;
+    }
+
+
+    /* BUTTON */
+
+    .location-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 16px 28px;
+      border: none;
+      border-radius: 6px;
+      background: #01998E;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .location-button:hover {
+      background: #074540;
+    }
+
+    .location-button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+
+    /* STATUS */
+
+    #locationStatus {
+      margin-top: 22px;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+
+    /* RESULT */
+
+    #representativeResult {
+      margin-top: 25px;
+    }
+
+    .rep-result-card {
+      background: #f7f7f7;
+      border-radius: 10px;
+      padding: 25px;
+      text-align: left;
+      border-left: 4px solid #01998E;
+    }
+
+    .rep-result-card .nearest {
+      color: #01998E;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .rep-result-card h3 {
+      color: #074540;
+      font-size: 26px;
+      margin: 8px 0 18px;
+    }
+
+    .rep-result-card p {
+      margin: 8px 0;
+    }
+
+    .rep-distance {
+      color: #01998E !important;
+      font-weight: 700;
+    }
+
+
+    /* CALL BUTTON */
+
+    .call-rep {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 20px;
+      background: #99010C;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 700;
+    }
+
+    .call-rep:hover {
+      background: #360005;
+    }
+
+
+    /* BACK LINK */
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: #074540;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      .rep-hero {
+        padding: 65px 20px 70px;
+      }
+
+      .rep-hero h1 {
+        font-size: 32px;
+      }
+
+      .rep-hero p {
+        font-size: 15px;
+      }
+
+      .finder-card {
+        padding: 30px 20px;
+      }
+
+      .finder-card h2 {
+        font-size: 26px;
+      }
+
+      .location-button {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       PAGE
+  ========================= -->
+
+  <main class="rep-page">
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="rep-hero">
+
+      <div class="label">
+        IDEGRO® SEEDS
+      </div>
+
+      <h1>
+        Find your Idegro representative.
+      </h1>
+
+      <p>
+        Get connected with the Idegro representative
+        closest to you for help with varieties,
+        crop selection and getting Idegro seeds.
+      </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         LOCATION FINDER
+    ========================= -->
+
+    <section class="rep-finder">
+
+      <div class="finder-card">
+
+        <h2>
+          Find the nearest representative
+        </h2>
+
+        <p>
+          Allow Idegro to use your location and we
+          will find the representative closest to you.
+        </p>
+
+        <button
+          id="findRepBtn"
+          class="location-button"
+        >
+          📍 Find My Nearest Representative
+        </button>
+
+
+        <div id="locationStatus"></div>
+
+
+        <div id="representativeResult"></div>
+
+      </div>
+
+
+      <div style="text-align:center;">
+
+        <a
+          href="idegro.html"
+          class="back-link"
+        >
+          ← Back to Idegro
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================================
+       IDEGRO REPRESENTATIVES
+    ========================================= */
+
+    const representatives = [
+
+      {
+        name: "Mr. Yakubu",
+
+        location: "Onitsha, Anambra State",
+
+        phone: "+2348147874370",
+
+        latitude: 6.1498,
+
+        longitude: 6.7857
+      }
+
+
+      /*
+        ADD MORE REPRESENTATIVES HERE
+
+        Example:
+
+        {
+          name: "Representative Name",
+          location: "Awka, Anambra State",
+          phone: "+234XXXXXXXXXX",
+          latitude: 6.2100,
+          longitude: 7.0700
+        }
+
+      */
+
+    ];
+
+
+
+    /* =========================================
+       DISTANCE CALCULATION
+    ========================================= */
+
+    function calculateDistance(
+      lat1,
+      lon1,
+      lat2,
+      lon2
+    ) {
+
+      const earthRadius = 6371;
+
+      const dLat =
+        (lat2 - lat1) * Math.PI / 180;
+
+      const dLon =
+        (lon2 - lon1) * Math.PI / 180;
+
+
+      const a =
+        Math.sin(dLat / 2) *
+        Math.sin(dLat / 2) +
+
+        Math.cos(lat1 * Math.PI / 180) *
+        Math.cos(lat2 * Math.PI / 180) *
+
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+
+
+      const c =
+        2 *
+        Math.atan2(
+          Math.sqrt(a),
+          Math.sqrt(1 - a)
+        );
+
+
+      return earthRadius * c;
+
+    }
+
+
+
+    /* =========================================
+       FIND NEAREST REPRESENTATIVE
+    ========================================= */
+
+    function findNearestRepresentative(
+      userLatitude,
+      userLongitude
+    ) {
+
+      let nearestRepresentative = null;
+
+      let shortestDistance = Infinity;
+
+
+      representatives.forEach(function(rep) {
+
+        const distance =
+          calculateDistance(
+            userLatitude,
+            userLongitude,
+            rep.latitude,
+            rep.longitude
+          );
+
+
+        if (distance < shortestDistance) {
+
+          shortestDistance = distance;
+
+          nearestRepresentative = rep;
+
+        }
+
+      });
+
+
+      return {
+
+        representative: nearestRepresentative,
+
+        distance: shortestDistance
+
+      };
+
+    }
+
+
+
+    /* =========================================
+       PAGE ELEMENTS
+    ========================================= */
+
+    const findRepBtn =
+      document.getElementById("findRepBtn");
+
+    const locationStatus =
+      document.getElementById("locationStatus");
+
+    const representativeResult =
+      document.getElementById(
+        "representativeResult"
+      );
+
+
+
+    /* =========================================
+       FIND REPRESENTATIVE
+    ========================================= */
+
+    findRepBtn.addEventListener(
+      "click",
+      function() {
+
+
+        /* Check location support */
+
+        if (!navigator.geolocation) {
+
+          locationStatus.textContent =
+            "Your browser does not support location services.";
+
+          return;
+
+        }
+
+
+        /* Loading */
+
+        findRepBtn.disabled = true;
+
+        findRepBtn.textContent =
+          "Finding your location...";
+
+
+        locationStatus.textContent =
+          "Please allow location access so we can find the representative closest to you.";
+
+
+        representativeResult.innerHTML = "";
+
+
+
+        /* Get location */
+
+        navigator.geolocation.getCurrentPosition(
+
+          function(position) {
+
+
+            const userLatitude =
+              position.coords.latitude;
+
+
+            const userLongitude =
+              position.coords.longitude;
+
+
+
+            /* Find nearest */
+
+            const result =
+              findNearestRepresentative(
+                userLatitude,
+                userLongitude
+              );
+
+
+            const rep =
+              result.representative;
+
+
+            const distance =
+              result.distance;
+
+
+
+            /* No representative */
+
+            if (!rep) {
+
+              locationStatus.textContent =
+                "We could not find a representative in your area.";
+
+              findRepBtn.disabled = false;
+
+              findRepBtn.textContent =
+                "📍 Find My Nearest Representative";
+
+              return;
+
+            }
+
+
+
+            /* Display result */
+
+            locationStatus.textContent =
+              "We found the Idegro representative closest to you.";
+
+
+            representativeResult.innerHTML = `
+
+              <div class="rep-result-card">
+
+                <div class="nearest">
+                  Your nearest representative
+                </div>
+
+                <h3>
+                  ${rep.name}
+                </h3>
+
+                <p>
+                  <strong>Location:</strong>
+                  ${rep.location}
+                </p>
+
+                <p class="rep-distance">
+                  Approximately
+                  ${distance.toFixed(1)}
+                  km away
+                </p>
+
+                <a
+                  href="tel:${rep.phone}"
+                  class="call-rep"
+                >
+                  Call ${rep.name}
+                </a>
+
+              </div>
+
+            `;
+
+
+
+            /* Reset */
+
+            findRepBtn.disabled = false;
+
+            findRepBtn.textContent =
+              "📍 Find My Nearest Representative";
+
+          },
+
+
+          /* =====================================
+             LOCATION ERROR
+          ===================================== */
+
+          function(error) {
+
+            findRepBtn.disabled = false;
+
+            findRepBtn.textContent =
+              "📍 Find My Nearest Representative";
+
+
+            if (error.code === 1) {
+
+              locationStatus.textContent =
+                "Location access was denied. Please allow location access in your browser settings and try again.";
+
+            }
+
+            else if (error.code === 2) {
+
+              locationStatus.textContent =
+                "We could not determine your location. Please try again.";
+
+            }
+
+            else if (error.code === 3) {
+
+              locationStatus.textContent =
+                "The location request timed out. Please try again.";
+
+            }
+
+            else {
+
+              locationStatus.textContent =
+                "Something went wrong while finding your location.";
+
+            }
+
+          },
+
+
+          /* GPS settings */
+
+          {
+
+            enableHighAccuracy: true,
+
+            timeout: 15000,
+
+            maximumAge: 0
+
+          }
+
+        );
+
+      }
+
+    );
+
+  </script>
+
+
+</body>
+
+</html>
