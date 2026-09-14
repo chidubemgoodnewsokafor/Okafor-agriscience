@@ -913,7 +913,12 @@ h4 {
 .idegro {
     color: var(--teal);
 }
-
+.idegro img {
+    width: 150px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+   }
 .rainso {
     color: var(--dark-teal);
 }
