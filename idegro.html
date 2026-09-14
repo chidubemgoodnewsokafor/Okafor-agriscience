@@ -12,6 +12,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -24,12 +28,17 @@
       color: inherit;
     }
 
-    /* NAV */
+
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     header {
       background: white;
       border-bottom: 1px solid #eeeeee;
       padding: 15px 20px;
+      position: relative;
+      z-index: 1000;
     }
 
     .nav {
@@ -43,6 +52,7 @@
 
     .logo {
       width: 130px;
+      display: block;
     }
 
     .logo img {
@@ -69,10 +79,63 @@
     }
 
 
-    /* HERO */
+    /* HAMBURGER */
+
+    .menu-button {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .menu-button span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #255514;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+
+
+    /* MOBILE MENU */
+
+    .mobile-menu {
+      display: none;
+      background: white;
+      border-top: 1px solid #eeeeee;
+      padding: 15px 20px 20px;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 14px 5px;
+      font-weight: bold;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .mobile-menu .mobile-contact {
+      background: #56AB2F;
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      margin-top: 15px;
+      border: none;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 600px;
+
       background:
         linear-gradient(
           rgba(37,85,20,0.65),
@@ -107,6 +170,11 @@
       line-height: 1.6;
     }
 
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
     .button {
       display: inline-block;
       background: #56AB2F;
@@ -124,7 +192,9 @@
     }
 
 
-    /* GENERAL */
+    /* =========================
+       GENERAL
+    ========================= */
 
     section {
       padding: 80px 20px;
@@ -155,7 +225,9 @@
     }
 
 
-    /* INTRO */
+    /* =========================
+       INTRO
+    ========================= */
 
     .intro {
       display: grid;
@@ -169,7 +241,9 @@
     }
 
 
-    /* CROPS */
+    /* =========================
+       CROPS
+    ========================= */
 
     .crops-section {
       background: #F4F8F1;
@@ -180,6 +254,22 @@
       gap: 18px;
       overflow-x: auto;
       padding: 10px 0 25px;
+
+      scrollbar-width: thin;
+    }
+
+    .crop-row::-webkit-scrollbar {
+      height: 7px;
+    }
+
+    .crop-row::-webkit-scrollbar-track {
+      background: #e5eee1;
+      border-radius: 10px;
+    }
+
+    .crop-row::-webkit-scrollbar-thumb {
+      background: #56AB2F;
+      border-radius: 10px;
     }
 
     .crop {
@@ -188,6 +278,11 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 8px 25px rgba(37,85,20,0.10);
+      transition: transform 0.25s ease;
+    }
+
+    .crop:hover {
+      transform: translateY(-5px);
     }
 
     .crop-image {
@@ -217,7 +312,9 @@
     }
 
 
-    /* WHY */
+    /* =========================
+       WHY IDEGRO
+    ========================= */
 
     .why {
       display: grid;
@@ -253,7 +350,9 @@
     }
 
 
-    /* CATALOG */
+    /* =========================
+       CATALOG
+    ========================= */
 
     .catalog-box {
       background: #255514;
@@ -271,7 +370,9 @@
     }
 
 
-    /* REPRESENTATIVE */
+    /* =========================
+       REPRESENTATIVE
+    ========================= */
 
     .representative {
       background: #F4F8F1;
@@ -284,7 +385,9 @@
     }
 
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       background: #074540;
@@ -316,12 +419,28 @@
     }
 
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 700px) {
 
+      header {
+        padding: 13px 18px;
+      }
+
+      .logo {
+        width: 115px;
+      }
+
+      /* Hide desktop navigation */
       .links {
         display: none;
+      }
+
+      /* Show hamburger */
+      .menu-button {
+        display: block;
       }
 
       .hero {
@@ -382,7 +501,9 @@
 <body>
 
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <header>
 
@@ -392,15 +513,26 @@
       <img src="idegro-logo.png" alt="Idegro">
     </a>
 
+
+    <!-- DESKTOP NAVIGATION -->
+
     <nav class="links">
 
-      <a href="idegro.html">Home</a>
+      <a href="idegro.html">
+        Home
+      </a>
 
-      <a href="crops.html">Crops</a>
+      <a href="crops.html">
+        Crops
+      </a>
 
-      <a href="why-idegro.html">Why Idegro</a>
+      <a href="why-idegro.html">
+        Why Idegro
+      </a>
 
-      <a href="catalog.html">Catalog</a>
+      <a href="catalog.html">
+        Catalog
+      </a>
 
       <a href="representatives.html" class="contact">
         Find a Representative
@@ -408,13 +540,60 @@
 
     </nav>
 
+
+    <!-- MOBILE MENU BUTTON -->
+
+    <button
+      class="menu-button"
+      onclick="toggleMenu()"
+      aria-label="Open menu"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
   </div>
+
+
+  <!-- MOBILE MENU -->
+
+  <nav class="mobile-menu" id="mobileMenu">
+
+    <a href="idegro.html">
+      Home
+    </a>
+
+    <a href="crops.html">
+      Crops
+    </a>
+
+    <a href="why-idegro.html">
+      Why Idegro
+    </a>
+
+    <a href="catalog.html">
+      Catalog
+    </a>
+
+    <a
+      href="representatives.html"
+      class="mobile-contact"
+    >
+      Find a Representative
+    </a>
+
+  </nav>
 
 </header>
 
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -438,7 +617,10 @@
       Explore Crops
     </a>
 
-    <a href="representatives.html" class="button white">
+    <a
+      href="representatives.html"
+      class="button white"
+    >
       Find a Representative
     </a>
 
@@ -448,7 +630,9 @@
 
 
 
-<!-- INTRO -->
+<!-- =========================
+     INTRO
+========================= -->
 
 <section>
 
@@ -488,7 +672,9 @@
 
 
 
-<!-- CROPS -->
+<!-- =========================
+     CROPS
+========================= -->
 
 <section class="crops-section">
 
@@ -514,15 +700,19 @@
       <a href="cucumber.html" class="crop">
 
         <div class="crop-image">
+
           <img
             src="images/cucumber.jpg"
             alt="Cucumber"
           >
+
         </div>
 
         <div class="crop-info">
 
-          <h3>Cucumber</h3>
+          <h3>
+            Cucumber
+          </h3>
 
           <span>
             View varieties →
@@ -537,15 +727,19 @@
       <a href="tomato.html" class="crop">
 
         <div class="crop-image">
+
           <img
             src="images/tomato.jpg"
             alt="Tomato"
           >
+
         </div>
 
         <div class="crop-info">
 
-          <h3>Tomato</h3>
+          <h3>
+            Tomato
+          </h3>
 
           <span>
             View varieties →
@@ -560,15 +754,19 @@
       <a href="pepper.html" class="crop">
 
         <div class="crop-image">
+
           <img
             src="images/pepper.jpg"
             alt="Pepper"
           >
+
         </div>
 
         <div class="crop-info">
 
-          <h3>Pepper</h3>
+          <h3>
+            Pepper
+          </h3>
 
           <span>
             View varieties →
@@ -583,15 +781,19 @@
       <a href="watermelon.html" class="crop">
 
         <div class="crop-image">
+
           <img
             src="images/watermelon.jpg"
             alt="Watermelon"
           >
+
         </div>
 
         <div class="crop-info">
 
-          <h3>Watermelon</h3>
+          <h3>
+            Watermelon
+          </h3>
 
           <span>
             View varieties →
@@ -606,15 +808,19 @@
       <a href="cabbage.html" class="crop">
 
         <div class="crop-image">
+
           <img
             src="images/cabbage.jpg"
             alt="Cabbage"
           >
+
         </div>
 
         <div class="crop-info">
 
-          <h3>Cabbage</h3>
+          <h3>
+            Cabbage
+          </h3>
 
           <span>
             View varieties →
@@ -633,7 +839,9 @@
 
 
 
-<!-- WHY IDEGRO -->
+<!-- =========================
+     WHY IDEGRO
+========================= -->
 
 <section>
 
@@ -715,7 +923,9 @@
 
 
 
-<!-- CATALOG -->
+<!-- =========================
+     CATALOG
+========================= -->
 
 <section>
 
@@ -723,7 +933,10 @@
 
     <div class="catalog-box">
 
-      <div class="label" style="color:#9BD477;">
+      <div
+        class="label"
+        style="color:#9BD477;"
+      >
         Product Catalog
       </div>
 
@@ -736,7 +949,10 @@
         and product information.
       </p>
 
-      <a href="catalog.html" class="button">
+      <a
+        href="catalog.html"
+        class="button"
+      >
         View Catalog →
       </a>
 
@@ -748,7 +964,9 @@
 
 
 
-<!-- REPRESENTATIVE -->
+<!-- =========================
+     REPRESENTATIVE
+========================= -->
 
 <section class="representative">
 
@@ -780,7 +998,9 @@
 
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -798,15 +1018,21 @@
     </p>
 
     <p>
-      <a href="https://chidubemgoodnewsokafor.github.io/okafor-agriscience/">
+
+      <a
+        href="https://chidubemgoodnewsokafor.github.io/okafor-agriscience/"
+      >
         Okafor Agriscience
       </a>
+
     </p>
 
     <div class="footer-bottom">
 
       Trademark of Okafor Agriscience and its affiliated companies.
+
       <br><br>
+
       © 2026 Okafor Agriscience
 
     </div>
@@ -814,6 +1040,39 @@
   </div>
 
 </footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+  function toggleMenu() {
+
+    const menu = document.getElementById("mobileMenu");
+
+    menu.classList.toggle("open");
+
+  }
+
+
+  /* Close the mobile menu after selecting a page */
+
+  document.querySelectorAll(".mobile-menu a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+      document
+        .getElementById("mobileMenu")
+        .classList.remove("open");
+
+    });
+
+  });
+
+</script>
 
 
 </body>
