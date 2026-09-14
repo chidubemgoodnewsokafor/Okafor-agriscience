@@ -6,22 +6,31 @@
 
 <title>Idegro® Seeds | Grow Your Advantage</title>
 
-<meta name="description" content="Idegro® Seeds — vegetable seeds designed for the tropics. Pioneer in vegetable seeds since 2018.">
+<meta
+  name="description"
+  content="Idegro® Seeds — vegetable seeds designed for tropical agriculture."
+>
 
 <style>
 
 /* =========================================================
-   IDEGRO BRAND COLORS
+   IDEGRO — SIMPLE GREEN DESIGN SYSTEM
 ========================================================= */
 
 :root {
     --green: #56AB2F;
+    --green-dark: #469326;
+    --green-deep: #36751E;
+    --green-deeper: #255514;
+
+    --green-pale: #F4F8F1;
+
     --teal: #074540;
-    --red: #360005;
+
     --white: #ffffff;
-    --light: #f5f7f4;
-    --text: #18312e;
-    --muted: #66736f;
+    --text: #18301d;
+    --muted: #647066;
+    --border: #e1e9df;
 }
 
 
@@ -52,12 +61,45 @@ img {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
-button {
-    font: inherit;
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container {
+    width: min(1160px, 92%);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.eyebrow {
+    color: var(--green-dark);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.section-title {
+    color: var(--green-deeper);
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+}
+
+.section-intro {
+    max-width: 650px;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 18px;
 }
 
 
@@ -67,89 +109,84 @@ button {
 
 .navbar {
     position: fixed;
+    z-index: 1000;
+
     top: 0;
     left: 0;
+
     width: 100%;
     height: 76px;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(7,69,64,0.10);
-    z-index: 1000;
+
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--border);
 }
 
-.nav-container {
-    width: min(1180px, 92%);
+.nav-inner {
     height: 100%;
-    margin: auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-
-/* LOGO */
-
-.logo-area {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.logo-area img {
+.brand-logo img {
     width: 125px;
     height: auto;
-    object-fit: contain;
 }
 
-
-/* MENU */
-
-.nav-menu {
+.nav-links {
     display: flex;
     align-items: center;
     gap: 30px;
+
     list-style: none;
 }
 
-.nav-menu a {
+.nav-links a {
+    color: var(--green-deeper);
     font-size: 14px;
-    font-weight: 600;
-    color: var(--teal);
-    transition: 0.3s ease;
+    font-weight: 700;
+
+    transition: color 0.25s ease;
 }
 
-.nav-menu a:hover {
+.nav-links a:hover {
     color: var(--green);
 }
 
-.nav-cta {
+.nav-button {
     background: var(--green);
     color: white !important;
+
     padding: 11px 18px;
-    border-radius: 30px;
+    border-radius: 24px;
 }
 
-.nav-cta:hover {
-    background: var(--teal) !important;
+.nav-button:hover {
+    background: var(--green-deep);
 }
 
 
-/* MOBILE MENU BUTTON */
+/* MOBILE MENU */
 
 .menu-toggle {
     display: none;
-    background: none;
+
     border: none;
+    background: transparent;
+
     cursor: pointer;
 }
 
 .menu-toggle span {
     display: block;
-    width: 26px;
+
+    width: 25px;
     height: 2px;
-    background: var(--teal);
-    margin: 6px 0;
+
+    margin: 5px 0;
+
+    background: var(--green-deeper);
 }
 
 
@@ -158,154 +195,100 @@ button {
 ========================================================= */
 
 .hero {
-    min-height: 720px;
-    padding-top: 76px;
+    min-height: 700px;
 
-    position: relative;
+    padding-top: 76px;
 
     display: flex;
     align-items: center;
 
+    position: relative;
+
     background:
         linear-gradient(
             90deg,
-            rgba(7,69,64,0.92) 0%,
-            rgba(7,69,64,0.72) 45%,
-            rgba(7,69,64,0.20) 100%
+            rgba(37,85,20,0.90) 0%,
+            rgba(37,85,20,0.67) 48%,
+            rgba(37,85,20,0.12) 100%
         ),
-        url("images/idegro-hero.jpg") center/cover no-repeat;
-
-    overflow: hidden;
+        url("images/idegro-hero.jpg") center / cover no-repeat;
 }
 
 .hero-content {
-    width: min(1180px, 92%);
-    margin: auto;
-
     color: white;
-    position: relative;
-    z-index: 2;
+    max-width: 720px;
 }
 
-.hero-small {
-    display: inline-block;
-
+.hero-kicker {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
 
-    color: #ffffff;
-
-    margin-bottom: 20px;
-
-    animation: fadeUp 0.8s ease forwards;
+    margin-bottom: 18px;
 }
 
 .hero h1 {
-    max-width: 720px;
-
-    font-size: clamp(52px, 7vw, 92px);
+    font-size: clamp(52px, 7vw, 88px);
     line-height: 0.95;
+    letter-spacing: -3px;
 
     margin-bottom: 25px;
-
-    animation: fadeUp 1s ease forwards;
 }
 
 .hero h1 span {
-    color: var(--green);
+    color: #9bd87c;
 }
 
-.hero-subtitle {
-    max-width: 620px;
+.hero-text {
+    max-width: 590px;
 
-    font-size: 21px;
-    line-height: 1.6;
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
 
-    margin-bottom: 35px;
-
-    color: rgba(255,255,255,0.92);
-
-    animation: fadeUp 1.2s ease forwards;
+    margin-bottom: 32px;
 }
 
-.hero-buttons {
+.hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
-
-    animation: fadeUp 1.4s ease forwards;
+    gap: 12px;
 }
 
-.btn {
+.button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
     padding: 14px 23px;
 
-    border-radius: 30px;
+    border-radius: 28px;
 
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
 
-    transition: 0.3s ease;
+    transition: 0.25s ease;
 }
 
-.btn-green {
+.button-primary {
     background: var(--green);
     color: white;
 }
 
-.btn-green:hover {
-    transform: translateY(-3px);
+.button-primary:hover {
     background: white;
-    color: var(--teal);
+    color: var(--green-deeper);
+    transform: translateY(-2px);
 }
 
-.btn-outline {
-    border: 1px solid rgba(255,255,255,0.7);
+.button-light {
+    border: 1px solid rgba(255,255,255,0.65);
     color: white;
 }
 
-.btn-outline:hover {
+.button-light:hover {
     background: white;
-    color: var(--teal);
-}
-
-
-/* FLOATING SHAPE */
-
-.hero-orb {
-    position: absolute;
-
-    width: 350px;
-    height: 350px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(86,171,47,0.35);
-
-    right: -120px;
-    bottom: -120px;
-
-    animation: float 7s ease-in-out infinite;
-}
-
-.hero-orb::after {
-    content: "";
-
-    position: absolute;
-
-    width: 220px;
-    height: 220px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(86,171,47,0.25);
-
-    left: 60px;
-    top: 60px;
+    color: var(--green-deeper);
 }
 
 
@@ -314,40 +297,25 @@ button {
 ========================================================= */
 
 .intro {
-    padding: 110px 0;
-}
-
-.container {
-    width: min(1180px, 92%);
-    margin: auto;
+    padding: 105px 0;
 }
 
 .intro-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 80px;
     align-items: center;
 }
 
-.section-label {
-    color: var(--green);
-
-    font-size: 13px;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-    text-transform: uppercase;
-
-    margin-bottom: 14px;
-}
-
 .intro h2 {
-    font-size: clamp(38px, 5vw, 60px);
+    color: var(--green-deeper);
+
+    font-size: clamp(38px, 5vw, 58px);
     line-height: 1.05;
 
-    color: var(--teal);
+    letter-spacing: -1.5px;
 
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 }
 
 .intro p {
@@ -355,51 +323,25 @@ button {
     font-size: 18px;
 }
 
-.intro-card {
-    min-height: 350px;
+.intro-note {
+    padding: 42px;
 
-    background:
-        linear-gradient(
-            145deg,
-            var(--green),
-            #3f8f24
-        );
+    background: var(--green-pale);
 
-    border-radius: 28px;
+    border-left: 5px solid var(--green);
 
-    padding: 45px;
-
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    position: relative;
-    overflow: hidden;
+    border-radius: 8px;
 }
 
-.intro-card::before {
-    content: "IDEGRO";
+.intro-note strong {
+    display: block;
 
-    position: absolute;
+    color: var(--green-deeper);
 
-    top: -30px;
-    right: -20px;
+    font-size: 28px;
+    line-height: 1.15;
 
-    font-size: 100px;
-    font-weight: 900;
-
-    opacity: 0.08;
-}
-
-.intro-card h3 {
-    font-size: 34px;
-    margin-bottom: 10px;
-}
-
-.intro-card p {
-    color: rgba(255,255,255,0.9);
+    margin-bottom: 12px;
 }
 
 
@@ -407,67 +349,95 @@ button {
    CROPS
 ========================================================= */
 
-.crops-section {
-    padding: 110px 0;
-    background: var(--light);
+.crops {
+    background: var(--green-pale);
 }
 
-.section-heading {
-    max-width: 700px;
-    margin-bottom: 55px;
+.crops-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 38px;
 }
 
-.section-heading h2 {
-    color: var(--teal);
-    font-size: clamp(38px, 5vw, 60px);
-    line-height: 1.05;
-    margin-bottom: 18px;
+.crops-header-text {
+    max-width: 680px;
 }
 
-.section-heading p {
-    color: var(--muted);
-    font-size: 18px;
+
+/* HORIZONTAL CROP SCROLLER */
+
+.crop-track {
+    display: flex;
+
+    gap: 20px;
+
+    overflow-x: auto;
+
+    padding: 5px 3px 22px;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--green) transparent;
 }
 
-.crops-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
+.crop-track::-webkit-scrollbar {
+    height: 7px;
 }
+
+.crop-track::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.crop-track::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 20px;
+}
+
+
+/* CROP CARD */
 
 .crop-card {
+    flex: 0 0 245px;
+
     background: white;
-    border-radius: 18px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
     overflow: hidden;
 
-    border: 1px solid rgba(7,69,64,0.08);
+    scroll-snap-align: start;
 
-    transition: 0.35s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .crop-card:hover {
-    transform: translateY(-9px);
-    box-shadow: 0 20px 45px rgba(7,69,64,0.12);
+    transform: translateY(-5px);
+
+    box-shadow: 0 14px 30px rgba(37,85,20,0.10);
 }
 
 .crop-image {
-    height: 220px;
+    height: 205px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(86,171,47,0.18),
-            rgba(7,69,64,0.08)
-        );
+    background: #e7f0e3;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: var(--teal);
+    color: var(--green-deep);
 
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 800;
 
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -479,12 +449,24 @@ button {
     object-fit: cover;
 }
 
-.crop-card h3 {
-    padding: 20px;
+.crop-info {
+    padding: 19px;
+}
 
-    color: var(--teal);
+.crop-info h3 {
+    color: var(--green-deeper);
+    font-size: 21px;
+}
 
-    font-size: 20px;
+.crop-link {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    color: var(--green-dark);
+
+    font-size: 14px;
+    font-weight: 800;
 }
 
 
@@ -492,79 +474,71 @@ button {
    WHY IDEGRO
 ========================================================= */
 
-.why-section {
-    padding: 120px 0;
+.why {
+    background: white;
 }
 
 .why-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
+
     gap: 80px;
+
     align-items: center;
 }
 
 .why-image {
-    min-height: 520px;
+    min-height: 480px;
 
-    border-radius: 28px;
+    border-radius: 12px;
 
     background:
-        linear-gradient(
-            rgba(7,69,64,0.08),
-            rgba(7,69,64,0.08)
-        ),
-        url("images/idegro-science.jpg") center/cover no-repeat;
-}
+        url("images/idegro-science.jpg")
+        center / cover no-repeat;
 
-.why-content h2 {
-    color: var(--teal);
-
-    font-size: clamp(38px, 5vw, 58px);
-
-    line-height: 1.05;
-
-    margin-bottom: 25px;
-}
-
-.why-content > p {
-    color: var(--muted);
-    font-size: 18px;
-
-    margin-bottom: 35px;
+    border: 1px solid var(--border);
 }
 
 .why-list {
+    margin-top: 35px;
+
     display: grid;
-    gap: 22px;
+
+    gap: 25px;
 }
 
 .why-item {
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
+    display: grid;
+
+    grid-template-columns: 42px 1fr;
+
+    gap: 17px;
 }
 
 .why-number {
     width: 42px;
     height: 42px;
 
-    flex-shrink: 0;
-
-    border-radius: 50%;
-
-    background: var(--green);
-    color: white;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
+    border-radius: 50%;
+
+    background: var(--green);
+
+    color: white;
+
+    font-size: 13px;
     font-weight: 800;
 }
 
 .why-item h3 {
-    color: var(--teal);
-    margin-bottom: 4px;
+    color: var(--green-deeper);
+
+    font-size: 19px;
+
+    margin-bottom: 3px;
 }
 
 .why-item p {
@@ -573,125 +547,60 @@ button {
 
 
 /* =========================================================
-   BRAND STATEMENT
-========================================================= */
-
-.statement {
-    min-height: 540px;
-
-    background: var(--red);
-
-    color: white;
-
-    display: flex;
-    align-items: center;
-
-    position: relative;
-    overflow: hidden;
-}
-
-.statement::before {
-    content: "";
-
-    position: absolute;
-
-    width: 550px;
-    height: 550px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    right: -180px;
-    top: -120px;
-}
-
-.statement-content {
-    width: min(900px, 92%);
-    margin: auto;
-
-    text-align: center;
-
-    position: relative;
-    z-index: 2;
-}
-
-.statement h2 {
-    font-size: clamp(48px, 7vw, 85px);
-    line-height: 0.98;
-
-    margin-bottom: 25px;
-}
-
-.statement h2 span {
-    color: var(--green);
-}
-
-.statement p {
-    max-width: 650px;
-
-    margin: auto;
-
-    font-size: 20px;
-
-    color: rgba(255,255,255,0.82);
-}
-
-
-/* =========================================================
    CATALOG
 ========================================================= */
 
 .catalog {
-    padding: 110px 0;
+    background: var(--green-deeper);
+    color: white;
 }
 
 .catalog-box {
-    background: var(--teal);
-
-    border-radius: 30px;
-
-    padding: 65px;
-
-    color: white;
-
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
+    justify-content: space-between;
 
-    gap: 40px;
+    gap: 50px;
 }
 
-.catalog-box h2 {
-    font-size: 42px;
-    line-height: 1.05;
-
-    margin-bottom: 14px;
+.catalog .eyebrow {
+    color: #9bd87c;
 }
 
-.catalog-box p {
+.catalog .section-title {
+    color: white;
+}
+
+.catalog-text {
+    max-width: 650px;
+
+    margin-top: 18px;
+
     color: rgba(255,255,255,0.78);
-    max-width: 570px;
+
+    font-size: 17px;
 }
 
 .catalog-button {
+    flex-shrink: 0;
+
     background: var(--green);
+
     color: white;
 
-    padding: 15px 25px;
+    padding: 15px 23px;
 
-    border-radius: 30px;
+    border-radius: 28px;
 
-    font-weight: 700;
+    font-weight: 800;
 
-    white-space: nowrap;
-
-    transition: 0.3s ease;
+    transition: 0.25s ease;
 }
 
 .catalog-button:hover {
     background: white;
-    color: var(--teal);
+    color: var(--green-deeper);
 }
 
 
@@ -700,145 +609,62 @@ button {
 ========================================================= */
 
 .representative {
-    padding: 110px 0;
-    background: var(--light);
+    padding: 100px 0;
 }
 
 .rep-box {
-    background: white;
+    display: grid;
 
-    border-radius: 28px;
+    grid-template-columns: 1fr auto;
 
-    padding: 55px;
+    gap: 50px;
 
-    border-left: 7px solid var(--green);
+    align-items: center;
 
-    box-shadow: 0 15px 50px rgba(7,69,64,0.06);
+    padding: 50px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
 }
 
 .rep-box h2 {
-    color: var(--teal);
+    color: var(--green-deeper);
 
     font-size: 44px;
+
+    line-height: 1.05;
 
     margin-bottom: 15px;
 }
 
 .rep-box p {
     color: var(--muted);
+
+    max-width: 620px;
 }
 
-.rep-details {
-    margin-top: 25px;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-.rep-detail {
-    padding: 20px;
-
-    background: var(--light);
-
-    border-radius: 14px;
-}
-
-.rep-detail strong {
-    display: block;
-
-    color: var(--teal);
-
-    margin-bottom: 4px;
-}
-
-.rep-detail span {
-    color: var(--muted);
-}
-
-
-/* =========================================================
-   OKAFOR CONNECTION
-========================================================= */
-
-.okafor {
-    padding: 110px 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(7,69,64,0.95),
-            rgba(7,69,64,0.75)
-        ),
-        url("images/okafor-vegetable-field.jpg") center/cover no-repeat;
-
-    color: white;
-}
-
-.okafor-content {
-    max-width: 750px;
-}
-
-.okafor h2 {
-    font-size: clamp(40px, 5vw, 62px);
-    line-height: 1.05;
-
-    margin-bottom: 22px;
-}
-
-.okafor p {
-    font-size: 19px;
-
-    color: rgba(255,255,255,0.84);
-
-    margin-bottom: 30px;
-}
-
-
-/* =========================================================
-   FACEBOOK
-========================================================= */
-
-.social {
-    padding: 70px 0;
-
-    text-align: center;
-}
-
-.social h2 {
-    color: var(--teal);
-    margin-bottom: 12px;
-}
-
-.social p {
-    color: var(--muted);
-    margin-bottom: 22px;
-}
-
-.facebook {
-    display: inline-block;
+.rep-button {
+    white-space: nowrap;
 
     background: var(--green);
+
     color: white;
 
-    padding: 13px 23px;
+    padding: 14px 22px;
 
-    border-radius: 30px;
+    border-radius: 27px;
 
-    font-weight: 700;
-
-    transition: 0.3s ease;
+    font-weight: 800;
 }
 
-.facebook:hover {
-    background: var(--teal);
-    transform: translateY(-3px);
+.rep-button:hover {
+    background: var(--green-deep);
 }
 
 
 /* =========================================================
-   FOOTER
+   FOOTER — OKAFOR AGRISCIENCE TEAL
 ========================================================= */
 
 footer {
@@ -860,22 +686,23 @@ footer {
 }
 
 .footer-logo {
-    width: 130px;
+    width: 125px;
+
     margin-bottom: 18px;
 }
 
 .footer-about p {
-    max-width: 400px;
+    max-width: 390px;
 
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.68);
 }
 
 .footer-column h3 {
+    color: white;
+
     font-size: 15px;
 
     margin-bottom: 18px;
-
-    color: var(--green);
 }
 
 .footer-column a {
@@ -883,19 +710,19 @@ footer {
 
     margin-bottom: 10px;
 
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.68);
 
-    transition: 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .footer-column a:hover {
-    color: white;
+    color: var(--green);
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.12);
-
     padding-top: 22px;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
 
     text-align: center;
 
@@ -904,35 +731,28 @@ footer {
     font-size: 13px;
 }
 
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+.footer-bottom p + p {
+    margin-top: 5px;
 }
 
-@keyframes float {
 
-    0%, 100% {
-        transform: translateY(0);
-    }
+/* =========================================================
+   SIMPLE REVEAL
+========================================================= */
 
-    50% {
-        transform: translateY(-20px);
-    }
+.reveal {
+    opacity: 0;
 
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -940,9 +760,9 @@ footer {
    RESPONSIVE
 ========================================================= */
 
-@media (max-width: 950px) {
+@media (max-width: 900px) {
 
-    .nav-menu {
+    .nav-links {
         position: absolute;
 
         top: 76px;
@@ -950,22 +770,21 @@ footer {
 
         width: 100%;
 
-        background: white;
-
         display: none;
 
         flex-direction: column;
-
         align-items: flex-start;
-
-        padding: 25px 5%;
 
         gap: 18px;
 
-        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        padding: 25px 4%;
+
+        background: white;
+
+        border-bottom: 1px solid var(--border);
     }
 
-    .nav-menu.active {
+    .nav-links.active {
         display: flex;
     }
 
@@ -978,23 +797,18 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .crops-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .catalog-box,
+    .rep-box {
+        grid-template-columns: 1fr;
     }
 
     .catalog-box {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .rep-details {
-        grid-template-columns: 1fr;
+        display: grid;
     }
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
     }
-
 }
 
 
@@ -1004,11 +818,11 @@ footer {
         height: 68px;
     }
 
-    .nav-menu {
+    .nav-links {
         top: 68px;
     }
 
-    .logo-area img {
+    .brand-logo img {
         width: 105px;
     }
 
@@ -1018,56 +832,44 @@ footer {
     }
 
     .hero h1 {
-        font-size: 54px;
+        font-size: 55px;
     }
 
-    .hero-subtitle {
+    .hero-text {
         font-size: 18px;
     }
 
+    .section,
     .intro,
-    .crops-section,
-    .why-section,
-    .catalog,
-    .representative,
-    .okafor {
-        padding: 80px 0;
+    .representative {
+        padding: 75px 0;
     }
 
-    .crops-grid {
-        grid-template-columns: 1fr;
+    .crops {
+        padding-top: 75px;
+        padding-bottom: 75px;
     }
 
-    .catalog-box,
+    .crop-card {
+        flex-basis: 235px;
+    }
+
+    .why-image {
+        min-height: 350px;
+    }
+
     .rep-box {
-        padding: 35px 25px;
+        padding: 30px 25px;
     }
 
-    .statement {
-        min-height: 450px;
+    .rep-box h2 {
+        font-size: 37px;
     }
 
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 35px;
     }
-
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.8s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 </style>
@@ -1077,96 +879,125 @@ footer {
 <body>
 
 
-<!-- =======================================================
+<!-- ======================================================
      NAVIGATION
-======================================================= -->
+====================================================== -->
 
-<nav class="navbar">
+<header class="navbar">
 
-    <div class="nav-container">
+    <div class="container nav-inner">
 
-        <!-- IDEGRO LOGO — ITS OWN PROPER PLACE -->
-        <a href="#home" class="logo-area">
-            <img src="idegro-logo.png" alt="Idegro Seeds">
+        <!-- REAL IDEGRO LOGO -->
+        <a href="idegro.html" class="brand-logo">
+            <img
+                src="idegro-logo.png"
+                alt="Idegro Seeds"
+            >
         </a>
 
 
-        <button class="menu-toggle" aria-label="Open menu">
+        <button
+            class="menu-toggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
             <span></span>
             <span></span>
             <span></span>
         </button>
 
 
-        <ul class="nav-menu">
+        <nav>
 
-            <li>
-                <a href="#crops">Crops</a>
-            </li>
+            <ul class="nav-links">
 
-            <li>
-                <a href="#why">Why Idegro</a>
-            </li>
+                <li>
+                    <a href="idegro.html">
+                        Home
+                    </a>
+                </li>
 
-            <li>
-                <a href="#catalog">Catalog</a>
-            </li>
+                <li>
+                    <a href="crops.html">
+                        Crops
+                    </a>
+                </li>
 
-            <li>
-                <a href="#representative">Representatives</a>
-            </li>
+                <li>
+                    <a href="why-idegro.html">
+                        Why Idegro
+                    </a>
+                </li>
 
-            <li>
-                <a href="#okafor">Okafor Agriscience</a>
-            </li>
+                <li>
+                    <a href="catalog.html">
+                        Catalog
+                    </a>
+                </li>
 
-            <li>
-                <a href="#representative" class="nav-cta">
-                    Find a Representative
-                </a>
-            </li>
+                <li>
+                    <a
+                        href="representatives.html"
+                        class="nav-button"
+                    >
+                        Find a Representative
+                    </a>
+                </li>
 
-        </ul>
+            </ul>
+
+        </nav>
 
     </div>
 
-</nav>
+</header>
 
 
 
-<!-- =======================================================
+<!-- ======================================================
      HERO
-======================================================= -->
+====================================================== -->
 
-<section class="hero" id="home">
+<main>
 
-    <div class="hero-orb"></div>
+<section class="hero">
 
-    <div class="hero-content">
+    <div class="container">
 
-        <div class="hero-small">
-            Idegro® Seeds
-        </div>
+        <div class="hero-content">
 
-        <h1>
-            Grow your <span>advantage.</span>
-        </h1>
+            <div class="hero-kicker">
+                Idegro® Seeds
+            </div>
 
-        <p class="hero-subtitle">
-            Seeds designed for the tropics.
-            Helping vegetable growers produce better,
-            more reliable crops.
-        </p>
+            <h1>
+                Grow your
+                <span>advantage.</span>
+            </h1>
 
-        <div class="hero-buttons">
+            <p class="hero-text">
+                Seeds designed for the tropics.
+                Practical genetics for growers
+                who want better crops.
+            </p>
 
-            <a href="#crops" class="btn btn-green">
-                Explore Crops
-            </a>
+            <div class="hero-actions">
 
-            <a href="#representative" class="btn btn-outline">
-                Find a Representative
-            </a>
+                <a
+                    href="crops.html"
+                    class="button button-primary"
+                >
+                    Explore Crops
+                </a>
+
+                <a
+                    href="representatives.html"
+                    class="button button-light"
+                >
+                    Find a Representative
+                </a>
+
+            </div>
 
         </div>
 
@@ -1176,9 +1007,9 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- ======================================================
      INTRODUCTION
-======================================================= -->
+====================================================== -->
 
 <section class="intro">
 
@@ -1188,33 +1019,34 @@ footer {
 
             <div class="reveal">
 
-                <div class="section-label">
+                <div class="eyebrow">
                     Since 2018
                 </div>
 
                 <h2>
-                    Built around the needs of tropical growers.
+                    Vegetable seeds built for tropical growers.
                 </h2>
 
                 <p>
-                    Idegro® is a vegetable seed brand focused on
-                    helping farmers achieve better performance
-                    through seeds selected for tropical growing
-                    conditions.
+                    Idegro® focuses on vegetable genetics selected
+                    with tropical production conditions and the
+                    needs of growers in mind.
                 </p>
 
             </div>
 
 
-            <div class="intro-card reveal">
+            <div class="intro-note reveal">
 
-                <h3>
-                    Pioneer in vegetable seeds since 2018.
-                </h3>
+                <strong>
+                    Grow better.
+                    Grow with confidence.
+                </strong>
 
                 <p>
-                    Practical genetics. Better crops.
-                    Greater opportunity for growers.
+                    Our goal is simple: give growers access to
+                    dependable vegetable seed varieties with
+                    useful traits for their production systems.
                 </p>
 
             </div>
@@ -1227,103 +1059,177 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- ======================================================
      CROPS
-======================================================= -->
+====================================================== -->
 
-<section class="crops-section" id="crops">
+<section class="section crops">
 
     <div class="container">
 
-        <div class="section-heading reveal">
+        <div class="crops-header">
 
-            <div class="section-label">
-                Our Crops
+            <div class="crops-header-text reveal">
+
+                <div class="eyebrow">
+                    Explore our crops
+                </div>
+
+                <h2 class="section-title">
+                    Seeds for crops that matter.
+                </h2>
+
+                <p class="section-intro">
+                    Choose a crop to explore the varieties
+                    available from Idegro®.
+                </p>
+
             </div>
-
-            <h2>
-                Seeds for crops that matter.
-            </h2>
-
-            <p>
-                Explore our vegetable crop portfolio.
-                Crop images can be added here as the catalog develops.
-            </p>
 
         </div>
 
 
-        <div class="crops-grid">
+        <!--
+            IMPORTANT:
+            These are the SAME links used from the
+            future Crops page.
+
+            When we build cucumber.html, tomato.html,
+            etc., both locations will automatically
+            lead to the same crop page.
+        -->
+
+        <div class="crop-track">
 
 
-            <article class="crop-card reveal">
+            <!-- CUCUMBER -->
 
-                <div class="crop-image">
-                    <!-- Add cucumber image later -->
-                    Cucumber
-                </div>
-
-                <h3>
-                    Cucumber
-                </h3>
-
-            </article>
-
-
-            <article class="crop-card reveal">
-
-                <div class="crop-image">
-                    <!-- Add tomato image later -->
-                    Tomato
-                </div>
-
-                <h3>
-                    Tomato
-                </h3>
-
-            </article>
-
-
-            <article class="crop-card reveal">
+            <a
+                href="cucumber.html"
+                class="crop-card reveal"
+            >
 
                 <div class="crop-image">
-                    <!-- Add pepper image later -->
-                    Pepper
+                    Cucumber image
                 </div>
 
-                <h3>
-                    Pepper
-                </h3>
+                <div class="crop-info">
 
-            </article>
+                    <h3>
+                        Cucumber
+                    </h3>
+
+                    <span class="crop-link">
+                        View varieties →
+                    </span>
+
+                </div>
+
+            </a>
 
 
-            <article class="crop-card reveal">
+            <!-- TOMATO -->
+
+            <a
+                href="tomato.html"
+                class="crop-card reveal"
+            >
 
                 <div class="crop-image">
-                    <!-- Add watermelon image later -->
-                    Watermelon
+                    Tomato image
                 </div>
 
-                <h3>
-                    Watermelon
-                </h3>
+                <div class="crop-info">
 
-            </article>
+                    <h3>
+                        Tomato
+                    </h3>
+
+                    <span class="crop-link">
+                        View varieties →
+                    </span>
+
+                </div>
+
+            </a>
 
 
-            <article class="crop-card reveal">
+            <!-- PEPPER -->
+
+            <a
+                href="pepper.html"
+                class="crop-card reveal"
+            >
 
                 <div class="crop-image">
-                    <!-- Add cabbage image later -->
-                    Cabbage
+                    Pepper image
                 </div>
 
-                <h3>
-                    Cabbage
-                </h3>
+                <div class="crop-info">
 
-            </article>
+                    <h3>
+                        Pepper
+                    </h3>
+
+                    <span class="crop-link">
+                        View varieties →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- WATERMELON -->
+
+            <a
+                href="watermelon.html"
+                class="crop-card reveal"
+            >
+
+                <div class="crop-image">
+                    Watermelon image
+                </div>
+
+                <div class="crop-info">
+
+                    <h3>
+                        Watermelon
+                    </h3>
+
+                    <span class="crop-link">
+                        View varieties →
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- CABBAGE -->
+
+            <a
+                href="cabbage.html"
+                class="crop-card reveal"
+            >
+
+                <div class="crop-image">
+                    Cabbage image
+                </div>
+
+                <div class="crop-info">
+
+                    <h3>
+                        Cabbage
+                    </h3>
+
+                    <span class="crop-link">
+                        View varieties →
+                    </span>
+
+                </div>
+
+            </a>
 
 
         </div>
@@ -1334,11 +1240,11 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- ======================================================
      WHY IDEGRO
-======================================================= -->
+====================================================== -->
 
-<section class="why-section" id="why">
+<section class="section why">
 
     <div class="container">
 
@@ -1349,20 +1255,20 @@ footer {
             </div>
 
 
-            <div class="why-content reveal">
+            <div class="reveal">
 
-                <div class="section-label">
+                <div class="eyebrow">
                     Why Idegro
                 </div>
 
-                <h2>
-                    Science that works in the field.
+                <h2 class="section-title">
+                    Better genetics.
+                    Practical results.
                 </h2>
 
-                <p>
-                    Our focus is simple: develop and select
-                    vegetable genetics that give growers a
-                    practical advantage in tropical conditions.
+                <p class="section-intro">
+                    We focus on traits that can make a real
+                    difference to growers.
                 </p>
 
 
@@ -1376,14 +1282,16 @@ footer {
                         </div>
 
                         <div>
+
                             <h3>
                                 Tropical focus
                             </h3>
 
                             <p>
-                                Genetics selected with tropical
+                                Varieties selected with tropical
                                 production environments in mind.
                             </p>
+
                         </div>
 
                     </div>
@@ -1396,14 +1304,16 @@ footer {
                         </div>
 
                         <div>
+
                             <h3>
-                                Farmer performance
+                                Farmer focused
                             </h3>
 
                             <p>
-                                We focus on traits that matter
-                                to growers and their markets.
+                                We consider the practical needs
+                                of growers and their markets.
                             </p>
+
                         </div>
 
                     </div>
@@ -1416,14 +1326,16 @@ footer {
                         </div>
 
                         <div>
+
                             <h3>
-                                Better genetics
+                                Continuous improvement
                             </h3>
 
                             <p>
-                                Continuous improvement through
-                                selection, testing and field performance.
+                                Better genetics begin with
+                                observation, selection and testing.
                             </p>
+
                         </div>
 
                     </div>
@@ -1441,35 +1353,11 @@ footer {
 
 
 
-<!-- =======================================================
-     BRAND STATEMENT
-======================================================= -->
+<!-- ======================================================
+     CATALOG
+====================================================== -->
 
-<section class="statement">
-
-    <div class="statement-content reveal">
-
-        <h2>
-            Better seeds.
-            <span>Better potential.</span>
-        </h2>
-
-        <p>
-            We believe better vegetable production begins
-            with better genetics.
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     PRODUCT CATALOG
-======================================================= -->
-
-<section class="catalog" id="catalog">
+<section class="section catalog">
 
     <div class="container">
 
@@ -1477,30 +1365,27 @@ footer {
 
             <div>
 
-                <div class="section-label">
+                <div class="eyebrow">
                     Product Catalog
                 </div>
 
-                <h2>
+                <h2 class="section-title">
                     Explore the Idegro portfolio.
                 </h2>
 
-                <p>
-                    View our current vegetable seed varieties,
-                    crop information and product details.
+                <p class="catalog-text">
+                    Browse our vegetable seed varieties and
+                    product information.
                 </p>
 
             </div>
 
 
-            <!-- Replace the PDF path when your catalog is uploaded -->
-
             <a
-                href="documents/idegro-product-catalog.pdf"
+                href="catalog.html"
                 class="catalog-button"
-                target="_blank"
             >
-                Download Catalog
+                View Catalog →
             </a>
 
         </div>
@@ -1511,308 +1396,26 @@ footer {
 
 
 
-<!-- =======================================================
+<!-- ======================================================
      REPRESENTATIVE
-======================================================= -->
+====================================================== -->
 
-<section class="representative" id="representative">
+<section class="representative">
 
     <div class="container">
 
         <div class="rep-box reveal">
 
-            <div class="section-label">
-                Find a Representative
-            </div>
+            <div>
 
-            <h2>
-                Talk to Idegro.
-            </h2>
-
-            <p>
-                Connect with an Idegro representative
-                for product information, availability
-                and technical support.
-            </p>
-
-
-            <div class="rep-details">
-
-
-                <div class="rep-detail">
-
-                    <strong>
-                        Representative
-                    </strong>
-
-                    <span>
-                        Yakubu
-                    </span>
-
+                <div class="eyebrow">
+                    Need help?
                 </div>
 
-
-                <div class="rep-detail">
-
-                    <strong>
-                        Location
-                    </strong>
-
-                    <span>
-                        Onitsha, Anambra State, Nigeria
-                    </span>
-
-                </div>
-
-
-                <div class="rep-detail">
-
-                    <strong>
-                        Phone
-                    </strong>
-
-                    <span>
-                        +234 814 787 4370
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     OKAFOR AGRISCIENCE
-======================================================= -->
-
-<section class="okafor" id="okafor">
-
-    <div class="container">
-
-        <div class="okafor-content reveal">
-
-            <div class="section-label">
-                Part of Okafor Agriscience
-            </div>
-
-            <h2>
-                Advancing agriculture through science.
-            </h2>
-
-            <p>
-                Idegro® is part of Okafor Agriscience,
-                an agriculture and life science business
-                focused on agricultural solutions and
-                technology for farmers.
-            </p>
-
-            <a href="index.html" class="btn btn-green">
-                Visit Okafor Agriscience
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     FACEBOOK
-======================================================= -->
-
-<section class="social">
-
-    <div class="container">
-
-        <h2>
-            Follow Idegro
-        </h2>
-
-        <p>
-            Follow us for updates, crop information
-            and agricultural content.
-        </p>
-
-        <a
-            href="https://www.facebook.com/share/1CFx6mYTAL/"
-            target="_blank"
-            class="facebook"
-        >
-            Visit Facebook
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
-<footer>
-
-    <div class="container">
-
-        <div class="footer-grid">
-
-
-            <div class="footer-about">
-
-                <img
-                    src="idegro-logo.png"
-                    alt="Idegro Seeds"
-                    class="footer-logo"
-                >
+                <h2>
+                    Find an Idegro representative.
+                </h2>
 
                 <p>
-                    Vegetable seeds designed for the tropics.
-                    Growing better possibilities for farmers.
-                </p>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>
-                    Explore
-                </h3>
-
-                <a href="#crops">
-                    Crops
-                </a>
-
-                <a href="#why">
-                    Why Idegro
-                </a>
-
-                <a href="#catalog">
-                    Product Catalog
-                </a>
-
-                <a href="#representative">
-                    Representatives
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>
-                    Company
-                </h3>
-
-                <a href="#okafor">
-                    Okafor Agriscience
-                </a>
-
-                <a href="https://www.facebook.com/share/1CFx6mYTAL/" target="_blank">
-                    Facebook
-                </a>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                Trademark of Okafor Agriscience and its affiliated companies.
-            </p>
-
-            <p>
-                © 2026 Okafor Agriscience
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =======================================================
-     JAVASCRIPT
-======================================================= -->
-
-<script>
-
-/* MOBILE MENU */
-
-const menuToggle = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector(".nav-menu");
-
-menuToggle.addEventListener("click", function () {
-
-    navMenu.classList.toggle("active");
-
-});
-
-
-/* CLOSE MOBILE MENU AFTER CLICK */
-
-document.querySelectorAll(".nav-menu a").forEach(function(link) {
-
-    link.addEventListener("click", function() {
-
-        navMenu.classList.remove("active");
-
-    });
-
-});
-
-
-/* SCROLL REVEAL */
-
-const reveals = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver(
-
-    function(entries) {
-
-        entries.forEach(function(entry) {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("show");
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.12
-    }
-
-);
-
-
-reveals.forEach(function(element) {
-
-    revealObserver.observe(element);
-
-});
-
-
-</script>
-
-
-</body>
-</html>
+                    Speak with a representative about
+                    varieties
