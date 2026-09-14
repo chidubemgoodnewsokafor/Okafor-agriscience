@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Idegro® Seeds</title>
-
-  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Idegro® Seeds</title>  <style>
 
     * {
       box-sizing: border-box;
@@ -278,22 +273,32 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 8px 25px rgba(37,85,20,0.10);
-      transition: transform 0.25s ease;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .crop:hover {
       transform: translateY(-5px);
+      box-shadow: 0 14px 35px rgba(37,85,20,0.14);
     }
 
     .crop-image {
       height: 180px;
       background: #dcebd5;
+      overflow: hidden;
     }
 
     .crop-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .crop:hover .crop-image img {
+      transform: scale(1.05);
     }
 
     .crop-info {
@@ -433,12 +438,10 @@
         width: 115px;
       }
 
-      /* Hide desktop navigation */
       .links {
         display: none;
       }
 
-      /* Show hamburger */
       .menu-button {
         display: block;
       }
@@ -494,540 +497,505 @@
 
     }
 
-  </style>
-</head>
-
-
-<body>
-
-
-<!-- =========================
+  </style></head><body><!-- =========================
      NAVIGATION
-========================= -->
-
-<header>
-
-  <div class="nav">
-
-    <a href="idegro.html" class="logo">
-      <img src="idegro-logo.png" alt="Idegro">
-    </a>
+========================= --><header>  <div class="nav"><a href="idegro.html" class="logo">
+  <img src="idegro-logo.png" alt="Idegro">
+</a>
 
 
-    <!-- DESKTOP NAVIGATION -->
+<!-- DESKTOP NAVIGATION -->
 
-    <nav class="links">
+<nav class="links">
 
-      <a href="idegro.html">
-        Home
-      </a>
+  <a href="idegro.html">
+    Home
+  </a>
 
-      <a href="crops.html">
-        Crops
-      </a>
+  <a href="crops.html">
+    Crops
+  </a>
 
-      <a href="why-idegro.html">
-        Why Idegro
-      </a>
+  <a href="why-idegro.html">
+    Why Idegro
+  </a>
 
-      <a href="catalog.html">
-        Catalog
-      </a>
+  <a href="catalog.html">
+    Catalog
+  </a>
 
-      <a href="representatives.html" class="contact">
-        Find a Representative
-      </a>
+  <a href="representatives.html" class="contact">
+    Find a Representative
+  </a>
 
-    </nav>
-
-
-    <!-- MOBILE MENU BUTTON -->
-
-    <button
-      class="menu-button"
-      onclick="toggleMenu()"
-      aria-label="Open menu"
-    >
-
-      <span></span>
-      <span></span>
-      <span></span>
-
-    </button>
-
-  </div>
+</nav>
 
 
-  <!-- MOBILE MENU -->
+<!-- MOBILE MENU BUTTON -->
 
-  <nav class="mobile-menu" id="mobileMenu">
+<button
+  class="menu-button"
+  onclick="toggleMenu()"
+  aria-label="Open menu"
+>
 
-    <a href="idegro.html">
-      Home
-    </a>
+  <span></span>
+  <span></span>
+  <span></span>
 
-    <a href="crops.html">
-      Crops
-    </a>
+</button>
 
-    <a href="why-idegro.html">
-      Why Idegro
-    </a>
+  </div>  <!-- MOBILE MENU -->  <nav class="mobile-menu" id="mobileMenu"><a href="idegro.html">
+  Home
+</a>
 
-    <a href="catalog.html">
-      Catalog
-    </a>
+<a href="crops.html">
+  Crops
+</a>
 
-    <a
-      href="representatives.html"
-      class="mobile-contact"
-    >
-      Find a Representative
-    </a>
+<a href="why-idegro.html">
+  Why Idegro
+</a>
 
-  </nav>
+<a href="catalog.html">
+  Catalog
+</a>
 
-</header>
+<a
+  href="representatives.html"
+  class="mobile-contact"
+>
+  Find a Representative
+</a>
 
-
-
-<!-- =========================
+  </nav></header><!-- =========================
      HERO
-========================= -->
+========================= --><section class="hero">  <div class="hero-content"><div class="label">
+  Since 2018
+</div>
 
-<section class="hero">
+<h1>
+  Grow your advantage.
+</h1>
 
-  <div class="hero-content">
+<p>
+  Seeds designed for the tropics.
+  Practical genetics for growers who want
+  better crops.
+</p>
 
-    <div class="label">
-      Since 2018
-    </div>
+<a href="crops.html" class="button">
+  Explore Crops
+</a>
 
-    <h1>
-      Grow your advantage.
-    </h1>
+<a
+  href="representatives.html"
+  class="button white"
+>
+  Find a Representative
+</a>
 
-    <p>
-      Seeds designed for the tropics.
-      Practical genetics for growers who want
-      better crops.
-    </p>
-
-    <a href="crops.html" class="button">
-      Explore Crops
-    </a>
-
-    <a
-      href="representatives.html"
-      class="button white"
-    >
-      Find a Representative
-    </a>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================
+  </div></section><!-- =========================
      INTRO
-========================= -->
+========================= --><section>  <div class="container intro"><div>
 
-<section>
-
-  <div class="container intro">
-
-    <div>
-
-      <div class="label">
-        Idegro® Seeds
-      </div>
-
-      <h2>
-        Vegetable seeds built for tropical growers.
-      </h2>
-
-    </div>
-
-    <div>
-
-      <p>
-        Idegro® focuses on vegetable genetics selected
-        with tropical production conditions and the
-        needs of growers in mind.
-      </p>
-
-      <p>
-        Our goal is simple: give growers access to
-        dependable vegetable seed varieties with useful
-        traits for their production systems.
-      </p>
-
-    </div>
-
+  <div class="label">
+    Idegro® Seeds
   </div>
 
-</section>
+  <h2>
+    Vegetable seeds built for tropical growers.
+  </h2>
 
+</div>
 
+<div>
 
-<!-- =========================
+  <p>
+    Idegro® focuses on vegetable genetics selected
+    with tropical production conditions and the
+    needs of growers in mind.
+  </p>
+
+  <p>
+    Our goal is simple: give growers access to
+    dependable vegetable seed varieties with useful
+    traits for their production systems.
+  </p>
+
+</div>
+
+  </div></section><!-- =========================
      CROPS
-========================= -->
+========================= --><section class="crops-section">  <div class="container"><div class="label">
+  Explore our crops
+</div>
 
-<section class="crops-section">
+<h2>
+  Seeds for crops that matter.
+</h2>
 
-  <div class="container">
+<p>
+  Choose a crop to explore the varieties
+  available from Idegro®.
+</p>
 
-    <div class="label">
-      Explore our crops
-    </div>
 
-    <h2>
-      Seeds for crops that matter.
-    </h2>
+<div class="crop-row">
 
-    <p>
-      Choose a crop to explore the varieties
-      available from Idegro®.
-    </p>
 
+  <a href="crops.html#cucumber" class="crop">
 
-    <div class="crop-row">
-
-
-      <a href="crops.html#cucumber" class="crop">
-
-        <div class="crop-image">
-
-          <img
-            src="images/cucumber.jpg"
-            alt="Cucumber"
-          >
-
-        </div>
-
-        <div class="crop-info">
-
-          <h3>
-            Cucumber
-          </h3>
-
-        </div>
-
-      </a>
-
-
-
-      <a href="crops.html#tomato" class="crop">
-
-        <div class="crop-image">
-
-          <img
-            src="images/tomato.jpg"
-            alt="Tomato"
-          >
-
-        </div>
-
-        <div class="crop-info">
-
-          <h3>
-            Tomato
-          </h3>
-
-        </div>
-
-      </a>
-
-
-
-      <a href="crops.html#pepper" class="crop">
-
-        <div class="crop-image">
-
-          <img
-            src="images/pepper.jpg"
-            alt="Pepper"
-          >
-
-        </div>
-
-        <div class="crop-info">
-
-          <h3>
-            Pepper
-          </h3>
-
-        </div>
-
-      </a>
-
-
-
-      <a href="crops.html#watermelon" class="crop">
-
-        <div class="crop-image">
-
-          <img
-            src="images/watermelon.jpg"
-            alt="Watermelon"
-          >
-
-        </div>
-
-        <div class="crop-info">
-
-          <h3>
-            Watermelon
-          </h3>
-
-        </div>
-
-      </a>
-
-
-
-      <a href="crops.html#cabbage" class="crop">
-
-        <div class="crop-image">
-
-          <img
-            src="images/cabbage.jpg"
-            alt="Cabbage"
-          >
-
-        </div>
-
-        <div class="crop-info">
-
-          <h3>
-            Cabbage
-          </h3>
-
-        </div>
-
-      </a>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================
-     WHY IDEGRO
-========================= -->
-
-<section>
-
-  <div class="container why">
-
-
-    <div class="why-image">
-
+    <div class="crop-image">
       <img
-        src="images/idegro-science.jpg"
-        alt="Idegro agricultural science"
+        src="cucumber.jpg"
+        alt="Cucumber"
       >
-
     </div>
 
-
-    <div>
-
-      <div class="label">
-        Why Idegro
-      </div>
-
-      <h2>
-        Better genetics. Practical results.
-      </h2>
-
-      <p>
-        We focus on traits that can make a real
-        difference to growers.
-      </p>
-
-
-      <div class="point">
-
-        <h3>
-          Tropical focus
-        </h3>
-
-        <p>
-          Varieties selected with tropical
-          production environments in mind.
-        </p>
-
-      </div>
-
-
-      <div class="point">
-
-        <h3>
-          Farmer focused
-        </h3>
-
-        <p>
-          We consider the practical needs
-          of growers and their markets.
-        </p>
-
-      </div>
-
-
-      <div class="point">
-
-        <h3>
-          Continuous improvement
-        </h3>
-
-        <p>
-          Better genetics begin with observation,
-          selection and testing.
-        </p>
-
-      </div>
-
+    <div class="crop-info">
+      <h3>Cucumber</h3>
     </div>
+
+  </a>
+
+
+  <a href="crops.html#tomato" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="tomato.jpg"
+        alt="Tomato"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Tomato</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#pepper" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="pepper.jpg"
+        alt="Pepper"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Pepper</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#watermelon" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="watermelon.jpg"
+        alt="Watermelon"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Watermelon</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#cabbage" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="cabbage.jpg"
+        alt="Cabbage"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Cabbage</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#carrot" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="carrot.jpg"
+        alt="Carrot"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Carrot</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#onion" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="onion.jpg"
+        alt="Onion"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Onion</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#okra" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="okra.jpg"
+        alt="Okra"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Okra</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#lettuce" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="lettuce.jpg"
+        alt="Lettuce"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Lettuce</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#sweet-corn" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="sweetcorn.jpg"
+        alt="Sweet Corn"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Sweet Corn</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#pumpkin" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="pumpkin.jpg"
+        alt="Pumpkin"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Pumpkin</h3>
+    </div>
+
+  </a>
+
+
+  <a href="crops.html#green-bean" class="crop">
+
+    <div class="crop-image">
+      <img
+        src="green-bean.jpg"
+        alt="Green Bean"
+      >
+    </div>
+
+    <div class="crop-info">
+      <h3>Green Bean</h3>
+    </div>
+
+  </a>
+
+
+</div>
+
+  </div></section><!-- =========================
+     WHY IDEGRO
+========================= --><section>  <div class="container why"><div class="why-image">
+
+  <img
+    src="idegro-science.jpg"
+    alt="Idegro agricultural science"
+  >
+
+</div>
+
+
+<div>
+
+  <div class="label">
+    Why Idegro
+  </div>
+
+  <h2>
+    Better genetics. Practical results.
+  </h2>
+
+  <p>
+    We focus on traits that can make a real
+    difference to growers.
+  </p>
+
+
+  <div class="point">
+
+    <h3>
+      Tropical focus
+    </h3>
+
+    <p>
+      Varieties selected with tropical
+      production environments in mind.
+    </p>
 
   </div>
 
-</section>
+
+  <div class="point">
+
+    <h3>
+      Farmer focused
+    </h3>
+
+    <p>
+      We consider the practical needs
+      of growers and their markets.
+    </p>
+
+  </div>
 
 
+  <div class="point">
 
-<!-- =========================
+    <h3>
+      Continuous improvement
+    </h3>
+
+    <p>
+      Better genetics begin with observation,
+      selection and testing.
+    </p>
+
+  </div>
+
+</div>
+
+  </div></section><!-- =========================
      CATALOG
-========================= -->
+========================= --><section>  <div class="container"><div class="catalog-box">
 
-<section>
-
-  <div class="container">
-
-    <div class="catalog-box">
-
-      <div
-        class="label"
-        style="color:#9BD477;"
-      >
-        Product Catalog
-      </div>
-
-      <h2>
-        Explore the Idegro portfolio.
-      </h2>
-
-      <p>
-        Browse our vegetable seed varieties
-        and product information.
-      </p>
-
-      <a
-        href="catalog.html"
-        class="button"
-      >
-        View Catalog →
-      </a>
-
-    </div>
-
+  <div
+    class="label"
+    style="color:#9BD477;"
+  >
+    Product Catalog
   </div>
 
-</section>
+  <h2>
+    Explore the Idegro portfolio.
+  </h2>
 
+  <p>
+    Browse our vegetable seed varieties
+    and product information.
+  </p>
 
+  <a
+    href="catalog.html"
+    class="button"
+  >
+    View Catalog →
+  </a>
 
-<!-- =========================
+</div>
+
+  </div></section><!-- =========================
      REPRESENTATIVE
-========================= -->
+========================= --><section class="representative">  <div class="representative-content"><div class="label">
+  Need help?
+</div>
 
-<section class="representative">
+<h2>
+  Find an Idegro representative.
+</h2>
 
-  <div class="representative-content">
+<p>
+  Speak with a representative about varieties,
+  crop selection and getting Idegro seeds.
+</p>
 
-    <div class="label">
-      Need help?
-    </div>
+<a
+  href="representatives.html"
+  class="button"
+>
+  Find a Representative
+</a>
 
-    <h2>
-      Find an Idegro representative.
-    </h2>
-
-    <p>
-      Speak with a representative about varieties,
-      crop selection and getting Idegro seeds.
-    </p>
-
-    <a
-      href="representatives.html"
-      class="button"
-    >
-      Find a Representative
-    </a>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================
+  </div></section><!-- =========================
      FOOTER
-========================= -->
+========================= --><footer>  <div class="footer-inner"><img
+  src="idegro-logo.png"
+  alt="Idegro"
+  class="footer-logo"
+>
 
-<footer>
+<p>
+  Idegro® is focused on practical vegetable
+  genetics for growers in tropical markets.
+</p>
 
-  <div class="footer-inner">
+<p>
 
-    <img
-      src="idegro-logo.png"
-      alt="Idegro"
-      class="footer-logo"
-    >
+  <a
+    href="https://chidubemgoodnewsokafor.github.io/okafor-agriscience/"
+  >
+    Okafor Agriscience
+  </a>
 
-    <p>
-      Idegro® is focused on practical vegetable
-      genetics for growers in tropical markets.
-    </p>
+</p>
 
-    <p>
+<div class="footer-bottom">
 
-      <a
-        href="https://chidubemgoodnewsokafor.github.io/okafor-agriscience/"
-      >
-        Okafor Agriscience
-      </a>
+  Trademark of Okafor Agriscience and its affiliated companies.
 
-    </p>
+  <br><br>
 
-    <div class="footer-bottom">
+  © 2026 Okafor Agriscience
 
-      Trademark of Okafor Agriscience and its affiliated companies.
+</div>
 
-      <br><br>
-
-      © 2026 Okafor Agriscience
-
-    </div>
-
-  </div>
-
-</footer>
-
-
-
-<!-- =========================
+  </div></footer><!-- =========================
      JAVASCRIPT
-========================= -->
-
-<script>
+========================= --><script>
 
   function toggleMenu() {
 
@@ -1052,8 +1020,5 @@
 
   });
 
-</script>
-
-
-</body>
+</script></body>
 </html>
