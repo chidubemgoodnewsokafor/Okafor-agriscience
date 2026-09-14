@@ -9,9 +9,10 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ================================
+
+    /* ==================================================
        IDEGRO CROPS PAGE
-       ================================ */
+       ================================================== */
 
     :root {
       --idegro-green: #2E7D32;
@@ -28,6 +29,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -35,149 +40,295 @@
       background: #ffffff;
     }
 
-    /* ================================
-       PAGE HERO
-       ================================ */
+    /* ==================================================
+       HERO
+       ================================================== */
 
     .crops-hero {
-      background:
-        linear-gradient(
-          rgba(23, 74, 29, 0.88),
-          rgba(23, 74, 29, 0.88)
-        ),
-        url("images/idegro-crops-hero.jpg") center/cover no-repeat;
+      min-height: 520px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       padding: 100px 20px;
+
       text-align: center;
       color: white;
+
+      background:
+        linear-gradient(
+          rgba(23, 74, 29, 0.55),
+          rgba(23, 74, 29, 0.65)
+        ),
+        url("images/idegro-crops-hero.jpg") center/cover no-repeat;
+    }
+
+    .crops-hero-content {
+      max-width: 850px;
     }
 
     .crops-hero h1 {
       margin: 0 0 18px;
-      font-size: clamp(38px, 6vw, 64px);
+
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.05;
       font-weight: 700;
     }
 
     .crops-hero p {
       max-width: 700px;
       margin: auto;
-      font-size: 18px;
+
+      font-size: 19px;
       line-height: 1.7;
-      opacity: 0.95;
     }
 
-    /* ================================
+
+    /* ==================================================
        INTRO
-       ================================ */
+       ================================================== */
 
     .crops-intro {
       max-width: 850px;
       margin: auto;
-      padding: 75px 20px 40px;
+
+      padding: 75px 20px 45px;
+
       text-align: center;
     }
 
     .crops-intro span {
       display: inline-block;
+
       margin-bottom: 12px;
+
       color: var(--idegro-green);
+
       font-size: 14px;
       font-weight: bold;
+
       text-transform: uppercase;
       letter-spacing: 2px;
     }
 
     .crops-intro h2 {
       margin: 0 0 18px;
-      font-size: clamp(30px, 5vw, 46px);
+
       color: var(--idegro-dark);
+
+      font-size: clamp(30px, 5vw, 46px);
     }
 
     .crops-intro p {
       margin: 0;
+
       color: var(--soft-text);
+
       font-size: 17px;
       line-height: 1.7;
     }
 
-    /* ================================
+
+    /* ==================================================
        CROPS GRID
-       ================================ */
+       ================================================== */
 
     .crops-section {
       max-width: 1180px;
       margin: auto;
-      padding: 30px 20px 90px;
+
+      padding: 25px 20px 95px;
     }
 
     .crops-grid {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+
+      gap: 25px;
     }
+
+
+    /* ==================================================
+       CROP CARD
+       ================================================== */
 
     .crop-card {
       background: white;
+
       border: 1px solid var(--border);
+
       border-radius: 16px;
+
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(23, 74, 29, 0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+      box-shadow:
+        0 8px 25px rgba(23, 74, 29, 0.06);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+      scroll-margin-top: 30px;
     }
 
     .crop-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 14px 35px rgba(23, 74, 29, 0.12);
+
+      box-shadow:
+        0 14px 35px rgba(23, 74, 29, 0.12);
     }
 
-    .crop-card-top {
-      padding: 30px 28px 22px;
+
+    /* ==================================================
+       CROP IMAGE
+       ================================================== */
+
+    .crop-image {
+      position: relative;
+
+      height: 260px;
+
+      overflow: hidden;
+
       background: var(--idegro-light);
     }
 
+    .crop-image img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      transition: transform 0.45s ease;
+    }
+
+    .crop-card:hover .crop-image img {
+      transform: scale(1.05);
+    }
+
+    .crop-image::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.72),
+          rgba(0, 0, 0, 0.08) 70%
+        );
+    }
+
+
+    /* ==================================================
+       CROP NUMBER
+       ================================================== */
+
     .crop-number {
-      color: var(--idegro-green);
-      font-size: 13px;
+      position: absolute;
+
+      top: 16px;
+      left: 17px;
+
+      z-index: 2;
+
+      color: white;
+
+      background: rgba(0, 0, 0, 0.35);
+
+      padding: 6px 9px;
+
+      border-radius: 20px;
+
+      font-size: 12px;
       font-weight: bold;
+
       letter-spacing: 1px;
-      margin-bottom: 12px;
     }
 
-    .crop-card h3 {
+
+    /* ==================================================
+       CROP NAME ON IMAGE
+       ================================================== */
+
+    .crop-image h3 {
+      position: absolute;
+
+      left: 24px;
+      bottom: 20px;
+
+      z-index: 2;
+
       margin: 0;
-      color: var(--idegro-dark);
-      font-size: 27px;
+
+      color: white;
+
+      font-size: 30px;
+      line-height: 1.1;
+
+      font-weight: 700;
     }
 
-    .crop-card p {
-      margin: 12px 0 22px;
+
+    /* ==================================================
+       CROP DESCRIPTION
+       ================================================== */
+
+    .crop-card-content {
+      padding: 20px 24px 22px;
+    }
+
+    .crop-card-content p {
+      margin: 0 0 20px;
+
       color: var(--soft-text);
+
       line-height: 1.6;
     }
 
-    /* ================================
+
+    /* ==================================================
        VIEW VARIETIES BUTTON
-       ================================ */
+       ================================================== */
 
     .variety-button {
       border: none;
+
       background: var(--idegro-green);
+
       color: white;
+
       padding: 12px 18px;
+
       border-radius: 8px;
+
       font-size: 15px;
       font-weight: bold;
+
       cursor: pointer;
-      transition: background 0.2s ease;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
     }
 
     .variety-button:hover {
       background: var(--idegro-dark);
+
+      transform: translateX(2px);
     }
 
     .variety-button .arrow {
       display: inline-block;
+
       margin-left: 7px;
+
       transition: transform 0.25s ease;
     }
 
@@ -185,14 +336,18 @@
       transform: rotate(90deg);
     }
 
-    /* ================================
-       VARIETY AREA
-       ================================ */
+
+    /* ==================================================
+       VARIETY PANEL
+       ================================================== */
 
     .variety-panel {
       display: none;
+
       padding: 22px;
+
       border-top: 1px solid var(--border);
+
       background: #ffffff;
     }
 
@@ -202,17 +357,29 @@
 
     .variety-heading {
       margin: 0 0 14px;
-      font-size: 15px;
+
       color: var(--idegro-dark);
+
+      font-size: 15px;
       font-weight: bold;
     }
 
+
+    /* ==================================================
+       HORIZONTAL VARIETY TRACK
+       ================================================== */
+
     .variety-track {
       display: flex;
+
       gap: 15px;
+
       overflow-x: auto;
+
       padding-bottom: 8px;
+
       scroll-behavior: smooth;
+
       scrollbar-width: thin;
     }
 
@@ -222,90 +389,132 @@
 
     .variety-track::-webkit-scrollbar-thumb {
       background: var(--idegro-green);
+
       border-radius: 10px;
     }
 
-    /* ================================
+
+    /* ==================================================
        VARIETY CARD
-       ================================ */
+       ================================================== */
 
     .variety-card {
       flex: 0 0 190px;
+
       min-height: 175px;
+
       border: 1px solid var(--border);
+
       border-radius: 12px;
+
       overflow: hidden;
+
       background: white;
     }
 
     .variety-image {
       height: 105px;
+
       background: var(--idegro-light);
+
       display: flex;
+
       align-items: center;
       justify-content: center;
+
       color: var(--soft-text);
+
       font-size: 12px;
+
       text-align: center;
+
       padding: 10px;
     }
 
     .variety-name {
       padding: 14px;
+
       color: var(--idegro-dark);
-      font-weight: bold;
+
       font-size: 14px;
+
+      font-weight: bold;
     }
 
-    /* ================================
-       TRANSITION IMAGE
-       ================================ */
+
+    /* ==================================================
+       VISUAL TRANSITION
+       ================================================== */
 
     .crops-transition {
       min-height: 430px;
+
       display: flex;
+
       align-items: center;
       justify-content: center;
+
       padding: 70px 20px;
+
+      text-align: center;
 
       background:
         linear-gradient(
           rgba(23, 74, 29, 0.35),
           rgba(23, 74, 29, 0.55)
         ),
-        url("images/idegro-crops-transition.jpg") center/cover no-repeat;
+        url("images/idegro-crops-transition.jpg")
+        center/cover no-repeat;
     }
 
     .transition-content {
       max-width: 750px;
-      text-align: center;
+
       color: white;
     }
 
     .transition-content h2 {
       margin: 0 0 15px;
+
       font-size: clamp(30px, 5vw, 48px);
     }
 
     .transition-content p {
       margin: 0;
+
       font-size: 18px;
+
       line-height: 1.7;
     }
 
-    /* ================================
+
+    /* ==================================================
        MOBILE
-       ================================ */
+       ================================================== */
 
     @media (max-width: 900px) {
+
       .crops-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
     }
 
+
     @media (max-width: 600px) {
+
       .crops-hero {
+        min-height: 430px;
+
         padding: 75px 20px;
+      }
+
+      .crops-hero h1 {
+        font-size: 43px;
+      }
+
+      .crops-hero p {
+        font-size: 17px;
       }
 
       .crops-intro {
@@ -316,8 +525,19 @@
         grid-template-columns: 1fr;
       }
 
-      .crop-card-top {
-        padding: 25px 22px 20px;
+      .crop-image {
+        height: 235px;
+      }
+
+      .crop-image h3 {
+        left: 20px;
+        bottom: 17px;
+
+        font-size: 28px;
+      }
+
+      .crop-card-content {
+        padding: 18px 20px 21px;
       }
 
       .variety-card {
@@ -327,32 +547,40 @@
       .crops-transition {
         min-height: 350px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- ================================
+
+  <!-- ==================================================
        HERO
-       ================================ -->
+       ================================================== -->
 
   <section class="crops-hero">
 
-    <h1>Our Crops</h1>
+    <div class="crops-hero-content">
 
-    <p>
-      Vegetable seeds designed for tropical growers,
-      with practical genetics built for better crops
-      and dependable performance.
-    </p>
+      <h1>Our Crops</h1>
+
+      <p>
+        Vegetable seeds designed for tropical growers,
+        with practical genetics built for better crops
+        and dependable performance.
+      </p>
+
+    </div>
 
   </section>
 
 
-  <!-- ================================
+  <!-- ==================================================
        INTRO
-       ================================ -->
+       ================================================== -->
 
   <section class="crops-intro">
 
@@ -368,40 +596,57 @@
   </section>
 
 
-  <!-- ================================
+  <!-- ==================================================
        CROP LIST
-       ================================ -->
+       ================================================== -->
 
   <section class="crops-section">
 
     <div class="crops-grid">
 
 
-      <!-- 01 TOMATO -->
+      <!-- ==================================================
+           01 TOMATO
+           ================================================== -->
 
-      <article class="crop-card">
+      <article class="crop-card" id="tomato">
 
         <div class="crop-card-top">
 
-          <div class="crop-number">01</div>
+          <div class="crop-image">
 
-          <h3>Tomato</h3>
+            <img
+              src="images/crops/tomato.jpg"
+              alt="Tomato"
+            >
 
-          <p>
-            Varieties selected for tropical growing conditions.
-          </p>
+            <div class="crop-number">01</div>
 
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
+            <h3>Tomato</h3>
+
+          </div>
+
+          <div class="crop-card-content">
+
+            <p>
+              Varieties selected for tropical growing
+              conditions.
+            </p>
+
+            <button
+              class="variety-button"
+              type="button"
+              aria-expanded="false"
+              onclick="toggleVarieties(this)"
+            >
+              View varieties
+              <span class="arrow">→</span>
+            </button>
+
+          </div>
 
         </div>
+
 
         <div class="variety-panel">
 
@@ -410,8 +655,6 @@
           </div>
 
           <div class="variety-track">
-
-            <!-- Add tomato varieties here later -->
 
             <div class="variety-card">
 
@@ -432,31 +675,48 @@
       </article>
 
 
-      <!-- 02 CUCUMBER -->
+      <!-- ==================================================
+           02 CUCUMBER
+           ================================================== -->
 
-      <article class="crop-card">
+      <article class="crop-card" id="cucumber">
 
         <div class="crop-card-top">
 
-          <div class="crop-number">02</div>
+          <div class="crop-image">
 
-          <h3>Cucumber</h3>
+            <img
+              src="images/crops/cucumber.jpg"
+              alt="Cucumber"
+            >
 
-          <p>
-            Practical cucumber genetics for tropical growers.
-          </p>
+            <div class="crop-number">02</div>
 
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
+            <h3>Cucumber</h3>
+
+          </div>
+
+          <div class="crop-card-content">
+
+            <p>
+              Practical cucumber genetics for tropical
+              growers.
+            </p>
+
+            <button
+              class="variety-button"
+              type="button"
+              aria-expanded="false"
+              onclick="toggleVarieties(this)"
+            >
+              View varieties
+              <span class="arrow">→</span>
+            </button>
+
+          </div>
 
         </div>
+
 
         <div class="variety-panel">
 
@@ -485,31 +745,48 @@
       </article>
 
 
-      <!-- 03 WATERMELON -->
+      <!-- ==================================================
+           03 WATERMELON
+           ================================================== -->
 
-      <article class="crop-card">
+      <article class="crop-card" id="watermelon">
 
         <div class="crop-card-top">
 
-          <div class="crop-number">03</div>
+          <div class="crop-image">
 
-          <h3>Watermelon</h3>
+            <img
+              src="images/crops/watermelon.jpg"
+              alt="Watermelon"
+            >
 
-          <p>
-            Genetics selected for productive tropical fields.
-          </p>
+            <div class="crop-number">03</div>
 
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
+            <h3>Watermelon</h3>
+
+          </div>
+
+          <div class="crop-card-content">
+
+            <p>
+              Genetics selected for productive tropical
+              fields.
+            </p>
+
+            <button
+              class="variety-button"
+              type="button"
+              aria-expanded="false"
+              onclick="toggleVarieties(this)"
+            >
+              View varieties
+              <span class="arrow">→</span>
+            </button>
+
+          </div>
 
         </div>
+
 
         <div class="variety-panel">
 
@@ -538,534 +815,16 @@
       </article>
 
 
-      <!-- 04 CABBAGE -->
+      <!-- ==================================================
+           04 CABBAGE
+           ================================================== -->
 
-      <article class="crop-card">
-
-        <div class="crop-card-top">
-
-          <div class="crop-number">04</div>
-
-          <h3>Cabbage</h3>
-
-          <p>
-            Cabbage varieties for reliable field performance.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Cabbage varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- 05 CARROT -->
-
-      <article class="crop-card">
+      <article class="crop-card" id="cabbage">
 
         <div class="crop-card-top">
 
-          <div class="crop-number">05</div>
-
-          <h3>Carrot</h3>
-
-          <p>
-            Carrot genetics selected for tropical production.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Carrot varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- 06 ONION -->
-
-      <article class="crop-card">
-
-        <div class="crop-card-top">
-
-          <div class="crop-number">06</div>
-
-          <h3>Onion</h3>
-
-          <p>
-            Onion varieties suited to demanding growing conditions.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Onion varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- 07 PEPPER -->
-
-      <article class="crop-card">
-
-        <div class="crop-card-top">
-
-          <div class="crop-number">07</div>
-
-          <h3>Peppers</h3>
-
-          <p>
-            Multiple pepper types and varieties under one crop.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Pepper varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- 08 OKRA -->
-
-      <article class="crop-card">
-
-        <div class="crop-card-top">
-
-          <div class="crop-number">08</div>
-
-          <h3>Okra</h3>
-
-          <p>
-            Okra genetics selected for tropical production.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Okra varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- 09 LETTUCE -->
-
-      <article class="crop-card">
-
-        <div class="crop-card-top">
-
-          <div class="crop-number">09</div>
-
-          <h3>Lettuce</h3>
-
-          <p>
-            Lettuce varieties for fresh market production.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Lettuce varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- 10 SWEET CORN -->
-
-      <article class="crop-card">
-
-        <div class="crop-card-top">
-
-          <div class="crop-number">10</div>
-
-          <h3>Sweet Corn</h3>
-
-          <p>
-            Sweet corn varieties for growers and fresh markets.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Sweet corn varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- 11 PUMPKIN -->
-
-      <article class="crop-card">
-
-        <div class="crop-card-top">
-
-          <div class="crop-number">11</div>
-
-          <h3>Pumpkin</h3>
-
-          <p>
-            Practical pumpkin genetics for tropical growers.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Pumpkin varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- 12 GREEN BEAN -->
-
-      <article class="crop-card">
-
-        <div class="crop-card-top">
-
-          <div class="crop-number">12</div>
-
-          <h3>Green Bean</h3>
-
-          <p>
-            Green bean varieties selected for practical production.
-          </p>
-
-          <button
-            class="variety-button"
-            type="button"
-            aria-expanded="false"
-            onclick="toggleVarieties(this)"
-          >
-            View varieties
-            <span class="arrow">→</span>
-          </button>
-
-        </div>
-
-        <div class="variety-panel">
-
-          <div class="variety-heading">
-            Green bean varieties
-          </div>
-
-          <div class="variety-track">
-
-            <div class="variety-card">
-
-              <div class="variety-image">
-                Variety picture
-              </div>
-
-              <div class="variety-name">
-                Variety name
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- ================================
-       VISUAL TRANSITION
-       ================================ -->
-
-  <section class="crops-transition">
-
-    <div class="transition-content">
-
-      <h2>Better genetics. Better growing.</h2>
-
-      <p>
-        From seed to harvest, Idegro works to give growers
-        practical genetics for tropical agriculture.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================================
-       JAVASCRIPT
-       ================================ -->
-
-  <script>
-
-    function toggleVarieties(button) {
-
-      const panel = button
-        .closest(".crop-card")
-        .querySelector(".variety-panel");
-
-      const isOpen = panel.classList.contains("open");
-
-      panel.classList.toggle("open");
-
-      button.classList.toggle("active");
-
-      button.setAttribute(
-        "aria-expanded",
-        !isOpen
-      );
-
-    }
-
-  </script>
-
-</body>
-</html>
+          <div class="crop-image">
+
+            <img
+              src="images/crops/cabbage.jpg"
+              alt="Cabbage"
