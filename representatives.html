@@ -20,38 +20,51 @@
   <style>
 
     /* =========================
-       REPRESENTATIVE PAGE
+       IDEGRO REPRESENTATIVE PAGE
     ========================= */
+
+    :root {
+      --idegro-green: #2E7D32;
+      --idegro-dark-green: #185C20;
+      --idegro-light-green: #EAF5EA;
+    }
+
 
     .rep-page {
       min-height: 100vh;
-      background: #f7f7f7;
+      background: #f7f8f7;
       padding-bottom: 80px;
     }
 
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .rep-hero {
-      background: #074540;
+      background: var(--idegro-dark-green);
       color: white;
-      padding: 90px 20px 80px;
+      padding: 90px 20px 85px;
       text-align: center;
     }
 
+
     .rep-hero .label {
-      color: #FFE500;
+      color: #B7E36B;
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 2px;
       margin-bottom: 15px;
     }
 
+
     .rep-hero h1 {
       font-size: 44px;
+      line-height: 1.15;
       margin: 0 auto 18px;
       max-width: 750px;
     }
+
 
     .rep-hero p {
       max-width: 650px;
@@ -61,7 +74,9 @@
     }
 
 
-    /* FINDER */
+    /* =========================
+       FINDER
+    ========================= */
 
     .rep-finder {
       max-width: 700px;
@@ -69,6 +84,7 @@
       position: relative;
       padding: 0 20px;
     }
+
 
     .finder-card {
       background: white;
@@ -78,11 +94,13 @@
       text-align: center;
     }
 
+
     .finder-card h2 {
-      color: #074540;
+      color: var(--idegro-dark-green);
       margin-top: 0;
       font-size: 30px;
     }
+
 
     .finder-card p {
       color: #555;
@@ -90,7 +108,9 @@
     }
 
 
-    /* BUTTON */
+    /* =========================
+       LOCATION BUTTON
+    ========================= */
 
     .location-button {
       display: inline-block;
@@ -98,7 +118,7 @@
       padding: 16px 28px;
       border: none;
       border-radius: 6px;
-      background: #01998E;
+      background: var(--idegro-green);
       color: white;
       font-size: 16px;
       font-weight: 700;
@@ -106,17 +126,21 @@
       transition: 0.3s ease;
     }
 
+
     .location-button:hover {
-      background: #074540;
+      background: var(--idegro-dark-green);
     }
 
+
     .location-button:disabled {
-      opacity: 0.6;
+      opacity: 0.65;
       cursor: wait;
     }
 
 
-    /* STATUS */
+    /* =========================
+       STATUS
+    ========================= */
 
     #locationStatus {
       margin-top: 22px;
@@ -126,74 +150,88 @@
     }
 
 
-    /* RESULT */
+    /* =========================
+       RESULT
+    ========================= */
 
     #representativeResult {
       margin-top: 25px;
     }
 
+
     .rep-result-card {
-      background: #f7f7f7;
+      background: var(--idegro-light-green);
       border-radius: 10px;
       padding: 25px;
       text-align: left;
-      border-left: 4px solid #01998E;
+      border-left: 5px solid var(--idegro-green);
     }
 
+
     .rep-result-card .nearest {
-      color: #01998E;
+      color: var(--idegro-green);
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
+
     .rep-result-card h3 {
-      color: #074540;
+      color: var(--idegro-dark-green);
       font-size: 26px;
       margin: 8px 0 18px;
     }
+
 
     .rep-result-card p {
       margin: 8px 0;
     }
 
+
     .rep-distance {
-      color: #01998E !important;
+      color: var(--idegro-green) !important;
       font-weight: 700;
     }
 
 
-    /* CALL BUTTON */
+    /* =========================
+       CALL BUTTON
+    ========================= */
 
     .call-rep {
       display: inline-block;
       margin-top: 18px;
       padding: 12px 20px;
-      background: #99010C;
+      background: var(--idegro-green);
       color: white;
       text-decoration: none;
       border-radius: 5px;
       font-weight: 700;
     }
 
+
     .call-rep:hover {
-      background: #360005;
+      background: var(--idegro-dark-green);
     }
 
 
-    /* BACK LINK */
+    /* =========================
+       BACK LINK
+    ========================= */
 
     .back-link {
       display: inline-block;
       margin-top: 30px;
-      color: #074540;
+      color: var(--idegro-dark-green);
       text-decoration: none;
       font-weight: 700;
     }
 
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 600px) {
 
@@ -201,21 +239,26 @@
         padding: 65px 20px 70px;
       }
 
+
       .rep-hero h1 {
         font-size: 32px;
       }
+
 
       .rep-hero p {
         font-size: 15px;
       }
 
+
       .finder-card {
         padding: 30px 20px;
       }
 
+
       .finder-card h2 {
         font-size: 26px;
       }
+
 
       .location-button {
         width: 100%;
@@ -230,10 +273,6 @@
 
 <body>
 
-
-  <!-- =========================
-       PAGE
-  ========================= -->
 
   <main class="rep-page">
 
@@ -275,9 +314,10 @@
         </h2>
 
         <p>
-          Allow Idegro to use your location and we
-          will find the representative closest to you.
+          Allow location access and we'll find the
+          Idegro representative closest to you.
         </p>
+
 
         <button
           id="findRepBtn"
@@ -319,37 +359,33 @@
 
   <script>
 
+
     /* =========================================
        IDEGRO REPRESENTATIVES
+
+       ADD NEW REPRESENTATIVES HERE LATER
     ========================================= */
 
     const representatives = [
 
       {
         name: "Mr. Yakubu",
-
         location: "Onitsha, Anambra State",
-
         phone: "+2348147874370",
-
         latitude: 6.1498,
-
         longitude: 6.7857
       }
 
-
       /*
-        ADD MORE REPRESENTATIVES HERE
+      Add another representative like this:
 
-        Example:
-
-        {
-          name: "Representative Name",
-          location: "Awka, Anambra State",
-          phone: "+234XXXXXXXXXX",
-          latitude: 6.2100,
-          longitude: 7.0700
-        }
+      ,{
+        name: "Representative Name",
+        location: "Awka, Anambra State",
+        phone: "+234XXXXXXXXXX",
+        latitude: 6.2100,
+        longitude: 7.0700
+      }
 
       */
 
@@ -358,7 +394,7 @@
 
 
     /* =========================================
-       DISTANCE CALCULATION
+       CALCULATE DISTANCE
     ========================================= */
 
     function calculateDistance(
@@ -403,7 +439,7 @@
 
 
     /* =========================================
-       FIND NEAREST REPRESENTATIVE
+       FIND CLOSEST REPRESENTATIVE
     ========================================= */
 
     function findNearestRepresentative(
@@ -439,11 +475,8 @@
 
 
       return {
-
         representative: nearestRepresentative,
-
         distance: shortestDistance
-
       };
 
     }
@@ -476,12 +509,12 @@
       function() {
 
 
-        /* Check location support */
+        /* Check browser support */
 
         if (!navigator.geolocation) {
 
           locationStatus.textContent =
-            "Your browser does not support location services.";
+            "Location services are not supported by your browser.";
 
           return;
 
@@ -495,16 +528,16 @@
         findRepBtn.textContent =
           "Finding your location...";
 
-
         locationStatus.textContent =
-          "Please allow location access so we can find the representative closest to you.";
-
+          "Please allow location access when your browser asks.";
 
         representativeResult.innerHTML = "";
 
 
 
-        /* Get location */
+        /* =====================================
+           GET USER LOCATION
+        ===================================== */
 
         navigator.geolocation.getCurrentPosition(
 
@@ -514,13 +547,11 @@
             const userLatitude =
               position.coords.latitude;
 
-
             const userLongitude =
               position.coords.longitude;
 
 
-
-            /* Find nearest */
+            /* Find closest representative */
 
             const result =
               findNearestRepresentative(
@@ -532,18 +563,16 @@
             const rep =
               result.representative;
 
-
             const distance =
               result.distance;
 
 
-
-            /* No representative */
+            /* No representatives */
 
             if (!rep) {
 
               locationStatus.textContent =
-                "We could not find a representative in your area.";
+                "There are currently no representatives available in our system.";
 
               findRepBtn.disabled = false;
 
@@ -555,8 +584,9 @@
             }
 
 
-
-            /* Display result */
+            /* =================================
+               SHOW RESULT
+            ================================= */
 
             locationStatus.textContent =
               "We found the Idegro representative closest to you.";
@@ -580,16 +610,15 @@
                 </p>
 
                 <p class="rep-distance">
-                  Approximately
-                  ${distance.toFixed(1)}
-                  km away
+                  About ${distance.toFixed(1)} km
+                  from your location
                 </p>
 
                 <a
                   href="tel:${rep.phone}"
                   class="call-rep"
                 >
-                  Call ${rep.name}
+                  📞 Call ${rep.name}
                 </a>
 
               </div>
@@ -597,8 +626,7 @@
             `;
 
 
-
-            /* Reset */
+            /* Reset button */
 
             findRepBtn.disabled = false;
 
@@ -623,44 +651,42 @@
             if (error.code === 1) {
 
               locationStatus.textContent =
-                "Location access was denied. Please allow location access in your browser settings and try again.";
+                "Location access was denied. Please allow location permission in your browser and try again.";
 
             }
 
             else if (error.code === 2) {
 
               locationStatus.textContent =
-                "We could not determine your location. Please try again.";
+                "We couldn't determine your location. Please make sure your phone's Location/GPS is turned on and try again.";
 
             }
 
             else if (error.code === 3) {
 
               locationStatus.textContent =
-                "The location request timed out. Please try again.";
+                "Finding your location took too long. Please make sure GPS/Location is turned on and try again.";
 
             }
 
             else {
 
               locationStatus.textContent =
-                "Something went wrong while finding your location.";
+                "Something went wrong while finding your location. Please try again.";
 
             }
 
           },
 
 
-          /* GPS settings */
+          /* =====================================
+             LOCATION SETTINGS
+          ===================================== */
 
           {
-
-            enableHighAccuracy: true,
-
-            timeout: 15000,
-
-            maximumAge: 0
-
+            enableHighAccuracy: false,
+            timeout: 20000,
+            maximumAge: 300000
           }
 
         );
